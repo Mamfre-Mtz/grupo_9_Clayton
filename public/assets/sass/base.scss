@@ -1,0 +1,29 @@
+//COLORS
+$color-primary: #594090;
+$color-primary-dark: #8b09c3;
+$color-secondary: #90aaee;
+
+$color-gray: #aaaaaa;
+$color-gray-light: #ebebeb;
+
+//FONT
+$font-primary: "Nunito", sans-serif;
+$font-display: "Josefin Sans", sans-serif;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; //10px/16px = 62.5% -> 1rem
+}
+body {
+  font-family: $font-primary;
+  color: $color-gray;
+  font-weight: 300;
+  line-height: 1.6;
+}
