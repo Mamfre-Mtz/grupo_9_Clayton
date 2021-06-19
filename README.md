@@ -20,9 +20,9 @@ Jonathan: Hola soy estudiante en ingenieria mecatrónica, me gustan las pelicula
 es DeadPool. Además me gusta la música y los deportes como el futbol americano, soccer y beisbol. Me gusta mucho mi carrera y el 
 area de programación, control y automatización.
 
-
-
-
+Christian: Hola actualmente estoy estudiando Ingeniería en Computación , me llama la atención todo lo relacionado con superheroes, y como recientemente
+estoy introduciendome en este tipo de contenido me parecio una oprotunidad que no podía desaprovechar, enter mis gustos estan practicar ocasionalmente futbol y 
+en cuanto la programación la rama que me llama mucho la atención es todo lo relacionado con desarrollo de páginas web
 
 
 Fuentes de inspiración:
