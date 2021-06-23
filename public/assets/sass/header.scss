@@ -1,0 +1,31 @@
+#head {
+  background-color: $color-primary;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem 0px;
+  .logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    > img {
+      object-fit: cover;
+      width: 100%;
+      max-width: 250px;
+      height: 45px;
+    }
+  }
+  .busqueda {
+  }
+  .login {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0px 6rem;
+    font-size: 2rem;
+    width: 50%;
+    > a:hover {
+      color: $color-secondary;
+    }
+  }
+}

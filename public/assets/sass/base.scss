@@ -1,0 +1,40 @@
+//COLORS
+// c8412d
+//
+$color-primary: #ffe556;
+$color-primary-dark: #8b09c3;
+$color-secondary: #00bcf0;
+$color-secondary-dark: #0083d5;
+
+$color-gray: #303539;
+$color-gray-light: #e1ebed;
+
+//FONT
+$font-primary: "Nunito", sans-serif;
+$font-display: "Josefin Sans", sans-serif;
+
+//BREAKPOINTS
+$tablet: 750px;
+$desktop: 1200px;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; //10px/16px = 62.5% -> 1rem
+}
+body {
+  font-family: $font-primary;
+  color: $color-gray;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.color-second {
+  color: $color-secondary-dark;
+}
