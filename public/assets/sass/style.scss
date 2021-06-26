@@ -1,4 +1,12 @@
 #main-content {
   display: grid;
   grid-template-columns: auto;
+  margin: 0px 3rem;
+
+  section.novedades {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(min-content, 16%));
+    gap: 2rem;
+    justify-content: center;
+  }
 }

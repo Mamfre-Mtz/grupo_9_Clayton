@@ -1,3 +1,4 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 *,
 *::before,
 *::after {
@@ -7,32 +8,34 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%; }
+  font-size: 62.5% !important; }
 
 body {
   font-family: "Nunito", sans-serif;
   color: #303539;
-  font-weight: 300;
+  font-weight: 300 !important;
   line-height: 1.6; }
 
 .color-second {
-  color: #0083d5; }
+  color: #fff; }
 
-h1 {
-  color: #ffe556;
+body h1 {
+  color: #4782c9;
   font-size: 5rem; }
 
-h2 {
+body h2 {
   color: #303539;
-  font-size: 4rem; }
+  font-size: 3.2rem;
+  margin-bottom: 2rem; }
 
 #head {
-  background-color: #ffe556;
+  background-color: #4782c9;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  padding: 1rem 0px; }
+  padding: 1rem 0px;
+  position: relative; }
   #head .logo {
     display: flex;
     justify-content: center;
@@ -46,11 +49,22 @@ h2 {
     display: flex;
     justify-content: flex-end;
     gap: 0px 6rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
     width: 50%; }
     #head .login > a:hover {
-      color: #00bcf0; }
+      color: #303539; }
+  #head .sans-face {
+    position: absolute;
+    top: 24px;
+    left: 26px;
+    width: 85px; }
 
 #main-content {
   display: grid;
-  grid-template-columns: auto; }
+  grid-template-columns: auto;
+  margin: 0px 3rem; }
+  #main-content section.novedades {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(min-content, 16%));
+    gap: 2rem;
+    justify-content: center; }
