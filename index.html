@@ -17,6 +17,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    
+
     <title>Clayton</title>
   </head>
   <body>
@@ -44,6 +51,49 @@
       <div class="banner">
         <img src="" alt="" />
       </div>
+
+      <!-- Start Hero Carousel -->
+		<section class="slider">
+      <div class="container">
+			  <div id="carousel-demo" class="carousel">
+				  <div class="item-1">
+					
+            <img
+                src="./public/assets/img/invincible.jpg"
+                alt="comic1"
+                style="max-width: 100%;height:auto;"
+              />
+				  </div>
+				  <div class="item-2">
+					
+            <img
+                src="./public/assets/img/liga justicia.jpg"
+                alt="marvel"
+                style="max-width: 100%;height:auto;"
+              />
+				  </div>
+				  <div class="item-3">
+					  <!-- Slide Content -->
+            <img
+                src="./public/assets/img/comicwallpaper.jpg"
+                alt="Placeholder image"
+                style="max-width: 100%;height:auto;"
+              />
+				  </div>
+          <div class="item-4">
+					  <!-- Slide Content -->
+            <img
+                src="./public/assets/img/marvel.jpg"
+                alt="Placeholder image"
+                style="max-width: 100%;height:auto;"
+              />
+				  </div>
+			  </div>
+      </div>
+		</section>
+		<!-- End Hero Carousel -->
+  
+     
       <h2 class="subtittle">Novedades</h2>
       <section class="novedades">
         <div class="card">
@@ -220,5 +270,20 @@
       </section>
     </main>
     <footer></footer>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+		<script>
+			bulmaCarousel.attach('#carousel-demo', {
+				slidesToScroll: 1,
+				slidesToShow: 2,
+        navigationKeys: true,
+        pagination: true,
+        autoplay:true,
+        autoplaySpeed: 5000,
+        pauseOnHover:true,
+        infinite:true
+			});
+		</script>
   </body>
 </html>

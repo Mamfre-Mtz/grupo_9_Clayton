@@ -3,6 +3,15 @@
   grid-template-columns: auto;
   margin: 0px 3rem;
 
+  section.slider{
+      .container{
+        display: grid;
+        .carousel{
+          overflow: hidden;
+          box-sizing: border-box;
+        }
+      }
+  }
   section.novedades {
     display: grid;
     grid-template-columns: repeat(5, minmax(min-content, 16%));
