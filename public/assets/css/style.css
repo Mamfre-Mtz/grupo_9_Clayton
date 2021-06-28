@@ -13,7 +13,7 @@ html {
   font-size: 62.5% !important; }
 
 body {
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "FuturaBold", sans-serif !important;
   color: #000;
   font-weight: 300 !important;
   line-height: 1.6; }
@@ -31,7 +31,8 @@ body h1 {
 body h2 {
   color: #000;
   font-size: 3.2rem;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  font-weight: bold; }
 
 #head {
   background-color: #00bcf0;
@@ -64,6 +65,42 @@ body h2 {
     left: 26px;
     width: 85px; }
 
+#pieDePagina {
+  background-color: #303539;
+  color: #fff; }
+  #pieDePagina section.enlaces ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5%; }
+    #pieDePagina section.enlaces ul li a {
+      align-self: center;
+      font-family: "Lato", sans-serif;
+      font-size: 1.3rem;
+      color: #fff; }
+  #pieDePagina section.metodosDePago {
+    display: grid;
+    margin: 0px 10px;
+    border-top: solid 1px gainsboro;
+    border-bottom: solid 1px gainsboro; }
+    #pieDePagina section.metodosDePago p {
+      font-family: "Lato", sans-serif;
+      font-size: 1.3rem;
+      text-align: center; }
+    #pieDePagina section.metodosDePago img {
+      justify-self: center;
+      width: 60%;
+      height: auto; }
+  #pieDePagina div.copyright {
+    padding-bottom: 5%; }
+    #pieDePagina div.copyright p {
+      font-family: "Lato", sans-serif;
+      color: gainsboro;
+      font-size: 1.3rem;
+      font-weight: lighter;
+      text-align: center; }
+
 #main-content {
   display: grid;
   grid-template-columns: auto;
@@ -71,6 +108,7 @@ body h2 {
   #main-content section.slider .container {
     display: grid; }
     #main-content section.slider .container .carousel {
+      margin-top: 20px;
       overflow: hidden;
       box-sizing: border-box; }
   #main-content section.novedades {
