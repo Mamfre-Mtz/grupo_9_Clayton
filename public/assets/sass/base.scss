@@ -8,16 +8,16 @@
 // purple #c8c2e2
 // gray #393852
 
-$color-primary: #4782c9;
+$color-primary: #00bcf0;
 $color-primary-dark: #78b0c5;
-$color-secondary: #fff;
+$color-secondary: #ffe556;
 // $color-secondary-dark: #393852
 
-$color-gray: #303539;
-$color-gray-light: #e1ebed;
+$color-gray: #000;
+$color-gray-light: #303539;
 
 //FONT
-$font-primary: "Nunito", sans-serif;
+$font-primary: "Montserrat", sans-serif;
 $font-display: "Josefin Sans", sans-serif;
 
 //BREAKPOINTS
@@ -37,12 +37,15 @@ html {
 }
 
 body {
-  font-family: $font-primary;
+  font-family: $font-primary !important;
   color: $color-gray;
   font-weight: 300 !important;
   line-height: 1.6;
 }
 
+main {
+  background-color: $color-secondary;
+}
 .color-second {
   color: $color-secondary;
 }

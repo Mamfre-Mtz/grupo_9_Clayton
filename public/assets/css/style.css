@@ -1,5 +1,6 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 @import "https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css";
+@import "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap";
 *,
 *::before,
 *::after {
@@ -12,25 +13,28 @@ html {
   font-size: 62.5% !important; }
 
 body {
-  font-family: "Nunito", sans-serif;
-  color: #303539;
+  font-family: "Montserrat", sans-serif !important;
+  color: #000;
   font-weight: 300 !important;
   line-height: 1.6; }
 
+main {
+  background-color: #ffe556; }
+
 .color-second {
-  color: #fff; }
+  color: #ffe556; }
 
 body h1 {
-  color: #4782c9;
+  color: #00bcf0;
   font-size: 5rem; }
 
 body h2 {
-  color: #303539;
+  color: #000;
   font-size: 3.2rem;
   margin-bottom: 2rem; }
 
 #head {
-  background-color: #4782c9;
+  background-color: #00bcf0;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -53,7 +57,7 @@ body h2 {
     font-size: 2.5rem;
     width: 50%; }
     #head .login > a:hover {
-      color: #303539; }
+      color: #000; }
   #head .sans-face {
     position: absolute;
     top: 24px;
@@ -71,6 +75,8 @@ body h2 {
       box-sizing: border-box; }
   #main-content section.novedades {
     display: grid;
-    grid-template-columns: repeat(5, minmax(min-content, 16%));
+    grid-template-columns: repeat(auto-fit, minmax(222px, 260px));
     gap: 2rem;
     justify-content: center; }
+    #main-content section.novedades .card .issue-margin {
+      margin: 0px 17%; }
