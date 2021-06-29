@@ -23,7 +23,7 @@
     section.metodosDePago{
 
         display: grid;
-        margin: 0px 10px;
+        margin: 0px 20px;
         border-top: solid 1px gainsboro;
         border-bottom: solid 1px gainsboro;
         p{
@@ -49,5 +49,79 @@
             font-weight: lighter;
             text-align: center;
         }
+    }
+}
+
+@media(min-width:$tablet){
+
+    #pieDePagina{
+
+        section.enlaces ul{
+            li a{
+                font-size: 2rem;
+            }
+        }
+
+        section.metodosDePago{
+            margin: 0px 40px;
+            p{
+                font-size: 2rem;
+            }
+            img{
+                width: 70%;
+            }
+        }
+
+        div.copyright{
+            p{
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+@media(min-width:$desktop){
+
+    #pieDePagina{
+
+        .contenedorFooter{
+            display: flex;
+            flex-direction: row;
+            padding: 1% 2% 0% 2%;
+         
+            justify-content: space-between;
+            
+
+            section.enlaces ul{
+                flex-direction: row;
+                flex-wrap: nowrap;
+                width: 140%;
+                padding: 5% 0 0 0;
+                align-self: center;
+
+                li a{
+                    font-size: 2.1rem;
+                }
+            }
+
+
+            section.metodosDePago{
+                border-bottom: none;
+                border-top: none;
+                width: 20%;
+                p{
+                    font-size: 1.8rem;
+                }
+                img{
+                    width: 100%;
+                }
+            }
+        }
+
+        div.copyright{
+            padding-bottom: 1%;
+        }
+
+
     }
 }

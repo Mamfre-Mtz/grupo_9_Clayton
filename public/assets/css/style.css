@@ -81,7 +81,7 @@ body h2 {
       color: #fff; }
   #pieDePagina section.metodosDePago {
     display: grid;
-    margin: 0px 10px;
+    margin: 0px 20px;
     border-top: solid 1px gainsboro;
     border-bottom: solid 1px gainsboro; }
     #pieDePagina section.metodosDePago p {
@@ -100,6 +100,43 @@ body h2 {
       font-size: 1.3rem;
       font-weight: lighter;
       text-align: center; }
+
+@media (min-width: 750px) {
+  #pieDePagina section.enlaces ul li a {
+    font-size: 2rem; }
+  #pieDePagina section.metodosDePago {
+    margin: 0px 40px; }
+    #pieDePagina section.metodosDePago p {
+      font-size: 2rem; }
+    #pieDePagina section.metodosDePago img {
+      width: 70%; }
+  #pieDePagina div.copyright p {
+    font-size: 2rem; } }
+
+@media (min-width: 1200px) {
+  #pieDePagina .contenedorFooter {
+    display: flex;
+    flex-direction: row;
+    padding: 1% 2% 0% 2%;
+    justify-content: space-between; }
+    #pieDePagina .contenedorFooter section.enlaces ul {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: 140%;
+      padding: 5% 0 0 0;
+      align-self: center; }
+      #pieDePagina .contenedorFooter section.enlaces ul li a {
+        font-size: 2.1rem; }
+    #pieDePagina .contenedorFooter section.metodosDePago {
+      border-bottom: none;
+      border-top: none;
+      width: 20%; }
+      #pieDePagina .contenedorFooter section.metodosDePago p {
+        font-size: 1.8rem; }
+      #pieDePagina .contenedorFooter section.metodosDePago img {
+        width: 100%; }
+  #pieDePagina div.copyright {
+    padding-bottom: 1%; } }
 
 #main-content {
   display: grid;
