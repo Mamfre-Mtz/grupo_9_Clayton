@@ -60,10 +60,17 @@ body h2 {
     #head .login > a:hover {
       color: #000; }
   #head .sans-face {
-    position: absolute;
-    top: 24px;
-    left: 26px;
-    width: 85px; }
+    display: none; }
+    @media (min-width: 750px) {
+      #head .sans-face {
+        display: block;
+        position: absolute;
+        top: 24px;
+        left: 26px;
+        width: 85px; } }
+
+.navbar {
+  height: 5rem; }
 
 #pieDePagina {
   background-color: #303539;

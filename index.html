@@ -28,7 +28,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-
+    <script ></script>
     <title>Clayton</title>
   </head>
   <body>
@@ -51,6 +51,54 @@
         alt=""
       />
     </header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item"> Inicio </a>
+
+          <a class="navbar-item"> DC Comics </a>
+          <a class="navbar-item"> Marvel Comics </a>
+          <a class="navbar-item"> Image Comics </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> Más </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item"> Blog </a>
+              <a class="navbar-item"> Funkos </a>
+              <a class="navbar-item"> Coleccionables </a>
+              <hr class="navbar-divider" />
+              <a class="navbar-item"> Reportar un problema </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Carrito</strong>
+              </a>
+              <a class="button is-light"> Log in </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
 
     <main>
       <div id="main-content">
@@ -241,28 +289,29 @@
     </main>
     <footer id="pieDePagina">
       <div class="contenedorFooter">
-      <section class="enlaces">
-        <ul type=none>
-          <li><a href="#">Términos y Condiciones</a></li>
-          <li><a href="#">Políticas de Envio</a></li>
-          <li><a href="#">Preguntas Frecuentes</a></li>
-          <li><a href="#">Sobre Nosotros</a></li>
-        </ul>
-      </section>
-      <section class="metodosDePago">
-        <br>
-        <p>Métodos de pago</p>
-        <img src="./public/assets/img/mediosDePago.png" alt="Medios de Pago">
-        
-        <br>
-      
-      </section>
+        <section class="enlaces">
+          <ul type="none">
+            <li><a href="#">Términos y Condiciones</a></li>
+            <li><a href="#">Políticas de Envio</a></li>
+            <li><a href="#">Preguntas Frecuentes</a></li>
+            <li><a href="#">Sobre Nosotros</a></li>
+          </ul>
+        </section>
+        <section class="metodosDePago">
+          <br />
+          <p>Métodos de pago</p>
+          <img
+            src="./public/assets/img/mediosDePago.png"
+            alt="Medios de Pago"
+          />
+
+          <br />
+        </section>
       </div>
       <div class="copyright">
-        <br>
+        <br />
         <p>©2021 - The Comic San's</p>
       </div>
-      
     </footer>
 
     <!-- Compiled and minified JavaScript -->

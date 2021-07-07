@@ -30,9 +30,17 @@
     }
   }
   .sans-face {
-    position: absolute;
-    top: 24px;
-    left: 26px;
-    width: 85px;
+    display: none;
+    @media (min-width: $tablet) {
+      display: block;
+      position: absolute;
+      top: 24px;
+      left: 26px;
+      width: 85px;
+    }
   }
+}
+// Bulma navbar
+.navbar {
+  height: 5rem;
 }
