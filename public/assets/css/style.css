@@ -24,15 +24,34 @@ main {
 .color-second {
   color: #ffe556; }
 
+.fill-secondary {
+  background-color: #ffe556; }
+
+.fill-primary {
+  background-color: #00bcf0; }
+
 body h1 {
   color: #00bcf0;
   font-size: 5rem; }
 
 body h2 {
   color: #000;
-  font-size: 3.2rem;
+  font-size: 2.8rem;
   margin-bottom: 2rem;
   font-weight: bold; }
+
+body h3 {
+  color: #000;
+  font-size: 2rem;
+  margin-bottom: 1rem; }
+
+body button {
+  font-size: 1.8rem;
+  border-radius: 75px;
+  justify-self: center;
+  height: 45px;
+  width: 15rem;
+  margin-top: 2rem; }
 
 #head {
   background-color: #00bcf0;
@@ -70,7 +89,8 @@ body h2 {
         width: 85px; } }
 
 .navbar {
-  height: 5rem; }
+  height: 5rem;
+  font-size: 1.6rem; }
 
 #pieDePagina {
   background-color: #303539;
@@ -160,9 +180,12 @@ body h2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(222px, 260px));
     gap: 2rem;
-    justify-content: center; }
+    justify-content: center;
+    margin-bottom: 4rem; }
     #main-content section.novedades .card .issue-margin {
       margin: 0px 17%; }
+    #main-content section.novedades .card:hover {
+      box-shadow: 0px 0px 10px #646464; }
 
 section#login {
   margin: 8%;
@@ -180,9 +203,9 @@ section#login {
       font-size: 1.4rem;
       color: #303539; }
     section#login form button {
-      background-color: #4349B5;
+      background-color: #4349b5;
       border-radius: 5px;
-      border: 1px solid #4349B5;
+      border: 1px solid #4349b5;
       color: #fff;
       width: 178px;
       height: 35px;
@@ -192,8 +215,8 @@ section#login {
     section#login form button.boton2 {
       background-color: #fff;
       border-radius: 5px;
-      border: 1px solid #E60023;
-      color: #E60023;
+      border: 1px solid #e60023;
+      color: #e60023;
       width: 178px;
       height: 35px;
       font-family: "Lato", sans-serif; }
@@ -203,3 +226,15 @@ section#login {
     text-align: center;
     font-size: 1.1rem;
     padding: 3%; }
+
+section#registro {
+  padding: 3rem 8%; }
+  section#registro .formulario_contacto {
+    display: grid; }
+    section#registro .formulario_contacto > .register--input {
+      height: 45px;
+      justify-self: center;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      width: 90%;
+      max-width: 65rem; }

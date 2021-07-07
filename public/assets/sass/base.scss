@@ -19,7 +19,7 @@ $color-gray-light: #303539;
 //FONT
 
 $font-primary: "FuturaBold", sans-serif;
-$font-secundary: "Lato",sans-serif;
+$font-secundary: "Lato", sans-serif;
 $font-display: "Josefin Sans", sans-serif;
 
 //BREAKPOINTS
@@ -50,4 +50,11 @@ main {
 }
 .color-second {
   color: $color-secondary;
+}
+
+.fill-secondary {
+  background-color: $color-secondary;
+}
+.fill-primary {
+  background-color: $color-primary;
 }

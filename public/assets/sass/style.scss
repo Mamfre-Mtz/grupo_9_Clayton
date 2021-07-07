@@ -18,61 +18,78 @@
     grid-template-columns: repeat(auto-fit, minmax(222px, 260px));
     gap: 2rem;
     justify-content: center;
+    margin-bottom: 4rem;
 
     .card {
       .issue-margin {
         margin: 0px 17%;
       }
+      &:hover {
+        box-shadow: 0px 0px 10px rgb(100, 100, 100);
+      }
     }
   }
 }
 
-section#login{
+section#login {
   margin: 8%;
   background-color: lightgray;
   border-radius: 5px;
-    form{
-      text-align: center;
-      input{
-        border-radius: 5px;
-        border: solid 1px $color-gray-light;
-        font-family: $font-primary;
-        margin-top: 5%;
-        padding: 2%;
-
-        
-      }
-      label{
-        font-size: 1.4rem;
-        color: $color-gray-light;
-      }
-      button{
-        background-color: #4349B5;
-        border-radius: 5px;
-        border: 1px solid #4349B5;
-        color: #fff;
-        width: 178px;
-        height: 35px;
-        font-family: $font-secundary;
-        margin-top: 5%;
-        margin-bottom: 1%;
-      }
-      button.boton2{
-        background-color: #fff;
-        border-radius: 5px;
-        border: 1px solid #E60023;
-        color: #E60023;
-        width: 178px;
-        height: 35px;
-        font-family: $font-secundary;
-      }
-
+  form {
+    text-align: center;
+    input {
+      border-radius: 5px;
+      border: solid 1px $color-gray-light;
+      font-family: $font-primary;
+      margin-top: 5%;
+      padding: 2%;
     }
-    article.enlaces{
-      margin-top: 3%;
-      margin-bottom: 3%;
-      text-align: center;
-      font-size: 1.1rem;
-      padding: 3%;
+    label {
+      font-size: 1.4rem;
+      color: $color-gray-light;
     }
+    button {
+      background-color: #4349b5;
+      border-radius: 5px;
+      border: 1px solid #4349b5;
+      color: #fff;
+      width: 178px;
+      height: 35px;
+      font-family: $font-secundary;
+      margin-top: 5%;
+      margin-bottom: 1%;
+    }
+    button.boton2 {
+      background-color: #fff;
+      border-radius: 5px;
+      border: 1px solid #e60023;
+      color: #e60023;
+      width: 178px;
+      height: 35px;
+      font-family: $font-secundary;
+    }
+  }
+  article.enlaces {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 3%;
+  }
+}
+
+section#registro {
+  padding: 3rem 8%;
+  .formulario_contacto {
+    display: grid;
+
+    > .register--input {
+      height: 45px;
+      justify-self: center;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      width: 90%;
+      max-width: 65rem;
+    }
+  }
 }
