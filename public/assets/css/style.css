@@ -24,6 +24,12 @@ main {
 .color-second {
   color: #ffe556; }
 
+.fill-secondary {
+  background-color: #ffe556; }
+
+.fill-primary {
+  background-color: #00bcf0; }
+
 body h1 {
   color: #00bcf0;
   font-size: 5rem; }
@@ -60,10 +66,92 @@ body h2 {
     #head .login > a:hover {
       color: #000; }
   #head .sans-face {
-    position: absolute;
-    top: 24px;
-    left: 26px;
-    width: 85px; }
+    display: none; }
+    @media (min-width: 750px) {
+      #head .sans-face {
+        display: block;
+        position: absolute;
+        top: 24px;
+        left: 26px;
+        width: 85px; } }
+
+.navbar {
+  height: 5rem;
+  font-size: 1.6rem; }
+
+#pieDePagina {
+  background-color: #303539;
+  color: #fff;
+  margin-bottom: 0; }
+  #pieDePagina section.enlaces ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5%; }
+    #pieDePagina section.enlaces ul li a {
+      align-self: center;
+      font-family: "Lato", sans-serif;
+      font-size: 1.3rem;
+      color: #fff; }
+  #pieDePagina section.metodosDePago {
+    display: grid;
+    margin: 0px 20px;
+    border-top: solid 1px gainsboro;
+    border-bottom: solid 1px gainsboro; }
+    #pieDePagina section.metodosDePago p {
+      font-family: "Lato", sans-serif;
+      font-size: 1.3rem;
+      text-align: center; }
+    #pieDePagina section.metodosDePago img {
+      justify-self: center;
+      width: 60%;
+      height: auto; }
+  #pieDePagina div.copyright {
+    padding-bottom: 5%; }
+    #pieDePagina div.copyright p {
+      font-family: "Lato", sans-serif;
+      color: gainsboro;
+      font-size: 1.3rem;
+      font-weight: lighter;
+      text-align: center; }
+
+@media (min-width: 750px) {
+  #pieDePagina section.enlaces ul li a {
+    font-size: 2rem; }
+  #pieDePagina section.metodosDePago {
+    margin: 0px 40px; }
+    #pieDePagina section.metodosDePago p {
+      font-size: 2rem; }
+    #pieDePagina section.metodosDePago img {
+      width: 70%; }
+  #pieDePagina div.copyright p {
+    font-size: 2rem; } }
+
+@media (min-width: 1200px) {
+  #pieDePagina .contenedorFooter {
+    display: flex;
+    flex-direction: row;
+    padding: 1% 2% 0% 2%;
+    justify-content: space-between; }
+    #pieDePagina .contenedorFooter section.enlaces ul {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: 140%;
+      padding: 5% 0 0 0;
+      align-self: center; }
+      #pieDePagina .contenedorFooter section.enlaces ul li a {
+        font-size: 2.1rem; }
+    #pieDePagina .contenedorFooter section.metodosDePago {
+      border-bottom: none;
+      border-top: none;
+      width: 20%; }
+      #pieDePagina .contenedorFooter section.metodosDePago p {
+        font-size: 1.8rem; }
+      #pieDePagina .contenedorFooter section.metodosDePago img {
+        width: 100%; }
+  #pieDePagina div.copyright {
+    padding-bottom: 1%; } }
 
 #pieDePagina {
   background-color: #303539;
@@ -115,6 +203,61 @@ body h2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(222px, 260px));
     gap: 2rem;
-    justify-content: center; }
+    justify-content: center;
+    margin-bottom: 4rem; }
     #main-content section.novedades .card .issue-margin {
       margin: 0px 17%; }
+    #main-content section.novedades .card:hover {
+      box-shadow: 0px 0px 10px #646464; }
+
+section#login {
+  margin: 8%;
+  background-color: lightgray;
+  border-radius: 5px; }
+  section#login form {
+    text-align: center; }
+    section#login form input {
+      border-radius: 5px;
+      border: solid 1px #303539;
+      font-family: "FuturaBold", sans-serif;
+      margin-top: 5%;
+      padding: 2%; }
+    section#login form label {
+      font-size: 1.4rem;
+      color: #303539; }
+    section#login form button {
+      background-color: #4349b5;
+      border-radius: 5px;
+      border: 1px solid #4349b5;
+      color: #fff;
+      width: 178px;
+      height: 35px;
+      font-family: "Lato", sans-serif;
+      margin-top: 5%;
+      margin-bottom: 1%; }
+    section#login form button.boton2 {
+      background-color: #fff;
+      border-radius: 5px;
+      border: 1px solid #e60023;
+      color: #e60023;
+      width: 178px;
+      height: 35px;
+      font-family: "Lato", sans-serif; }
+  section#login article.enlaces {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 3%; }
+
+section#registro {
+  padding: 3rem 8%; }
+  section#registro .formulario_contacto {
+    display: grid; }
+    section#registro .formulario_contacto > .register--input {
+      height: 45px;
+      justify-self: center;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      width: 90%;
+      max-width: 65rem; }

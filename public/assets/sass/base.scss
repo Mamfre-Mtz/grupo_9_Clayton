@@ -50,3 +50,10 @@ main {
 .color-second {
   color: $color-secondary;
 }
+
+.fill-secondary {
+  background-color: $color-secondary;
+}
+.fill-primary {
+  background-color: $color-primary;
+}
