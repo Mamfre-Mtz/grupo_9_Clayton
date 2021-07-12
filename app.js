@@ -15,8 +15,8 @@ app.use(express.static('public'));
 
 app.use('/', rutasMain);
 
-app.use('/', rutasProductos);
 
+app.use('/', rutasProductos);
 
 
 
