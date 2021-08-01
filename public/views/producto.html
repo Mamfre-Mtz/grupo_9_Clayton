@@ -97,37 +97,43 @@
     </nav>
 
     <main>
-      <div id="card">
-        <h2>Carrito</h2>
-        <div class="card__layout">
-          <section class="card__items">
-            <div class="item">
-              <figure class="item__img">
-                <img src="../assets/img/comic-issues/invincible_1.jpg" alt="" />
-              </figure>
-              <h4>Invincible #60</h4>
-              <input type="text" class="item__cantidad" value="1" />
+      <div id="single__product">
+        <section class="product__image">
+          <figure>
+            <img
+              src="../assets/img/comic-issues/invincible_1.jpg"
+              alt="product"
+            />
+          </figure>
+        </section>
+        <section class="product__info">
+          <div class="info">
+            <h3 class="info__title">Invincible #60</h3>
+            <div class="info__specs">
+              <p>Editorial Image</p>
+              <p>Escrito por by Robert Kirkman</p>
+              <p>Publicado en 12/06/2010</p>
+            </div>
+            <div class="info__precios">
+              <p>$ 3.99</p>
               <p>$ 2.99</p>
+              <p class="disscount">25% off</p>
             </div>
-            <div class="item">
-              <figure class="item__img">
-                <img src="../assets/img/comic-issues/invincible_1.jpg" alt="" />
-              </figure>
-              <h4>Invincible #60</h4>
-              <input type="text" class="item__cantidad" value="1" />
-              <p>$ 2.99</p>
-            </div>
-          </section>
-          <hr class="hide-md" />
-          <section class="card__total">
-            <div class="total">
-              <h2>Total</h2>
-              <p>$ 5.99</p>
-            </div>
-            <form id="pagar" action="">
-              <button class="btn-addcart">Pagar</button>
+            <form id="addcart-product" action="">
+              <p class="available">disponible</p>
+              <button class="btn-addcart">Añadir al carrito</button>
             </form>
-          </section>
+          </div>
+        </section>
+        <div class="product__description">
+          <h3 class="">Descripción</h3>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Repellendus, facere sapiente! Totam officiis id velit, eaque unde
+            rem impedit assumenda dolor, ipsa illo pariatur, nam dignissimos ab?
+            Similique, esse repellendus.
+          </p>
         </div>
       </div>
     </main>

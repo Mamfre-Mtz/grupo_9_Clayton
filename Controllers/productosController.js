@@ -12,7 +12,9 @@ const controlador = {
   store: (req, res) => {},
   destroy: (req, res) => {},
 
-  single: (req, res) => {},
+  single: (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/views/producto.html"));
+  },
 };
 
 module.exports = controlador;

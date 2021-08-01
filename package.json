@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "watch:sass": "node-sass public/assets/sass/main.scss public/assets/css/style.css -w",
+    "demon": "nodemon app.js",
     "devserver": "live-server",
-    "start": "npm-run-all --parallel devserver watch:sass",
+    "start": "npm-run-all --parallel demon watch:sass",
     "compile:sass": "node-sass public/assets/sass/main.scss public/assets/css/style.comp.css",
     "concat:css": "concat -o css/style.concat.css css/icon-font.css css/style.comp.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
@@ -24,6 +25,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "nodemon": "^2.0.12"
   }
 }
