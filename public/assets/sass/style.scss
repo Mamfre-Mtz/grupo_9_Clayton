@@ -91,5 +91,12 @@ section#registro {
       width: 90%;
       max-width: 65rem;
     }
+    > button {
+      border-radius: 50px;
+      cursor: pointer;
+      justify-self: center;
+      width: 10rem;
+      max-width: 300px;
+    }
   }
 }
