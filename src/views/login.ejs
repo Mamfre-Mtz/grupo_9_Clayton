@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- head -->
+  <%- include('partials/head', {title:'Inicio'}) %>
+  <body>
+    <!-- /Header -->
+    <%- include('partials/header') %>
+    <section id="login">
+        <form>
+          <form action="/" method="GET">
+  
+            <input type='text'name='Nombre de usuario' placeholder='Usuario'>
+            <br>
+            <input type="password" name="password" placeholder="Contraseña">
+            <br>
+            
+            <input type="checkbox" name="recordatorio" value="Recuerdame" >
+            <label for="recordatorio">Mantener mi sesion iniciada</label>
+            <br>
+            <button type="submit">Ingresar</button>
+            <br>
+            <button class="boton2" type="submit">Ingresar con Google</button>
+            
+        </form>
+        <br>
+        <article class="enlaces">
+          <span>¿No tienes cuenta aún?   </span>
+          <span><a href="/public/views/register.html">Registrate aquí</a></span>
+          <br>
+          <span>¿Olvidaste tu contraseña?   </span>
+          <span><a href="#">Haz click aquí</a></span>
+        </article>
+    
+        
+      </section>
+
+    <%- include('partials/footer')%>
+  </body>
+</html>

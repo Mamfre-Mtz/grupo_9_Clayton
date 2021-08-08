@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- head -->
+  <%- include('partials/head', {title:'Inicio'}) %>
+  <body>
+    <!-- /Header -->
+    <%- include('partials/header') %>
+    <main>
+      <div id="single__product">
+        <section class="product__image">
+          <figure>
+            <img
+              src="../assets/img/comic-issues/invincible_1.jpg"
+              alt="product"
+            />
+          </figure>
+        </section>
+        <section class="product__info">
+          <div class="info">
+            <h3 class="info__title">Invincible #60</h3>
+            <div class="info__specs">
+              <p>Editorial Image</p>
+              <p>Escrito por by Robert Kirkman</p>
+              <p>Publicado en 12/06/2010</p>
+            </div>
+            <div class="info__precios">
+              <p>$ 3.99</p>
+              <p>$ 2.99</p>
+              <p class="disscount">25% off</p>
+            </div>
+            <form id="addcart-product" action="">
+              <p class="available">disponible</p>
+              <button class="btn-addcart">Añadir al carrito</button>
+            </form>
+          </div>
+        </section>
+        <div class="product__description">
+          <h3 class="">Descripción</h3>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Repellendus, facere sapiente! Totam officiis id velit, eaque unde
+            rem impedit assumenda dolor, ipsa illo pariatur, nam dignissimos ab?
+            Similique, esse repellendus.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <%- include('partials/footer')%>
+  </body>
+</html>

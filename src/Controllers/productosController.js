@@ -1,11 +1,11 @@
 const path = require("path");
 const controlador = {
   productos: (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/views/productos.html"));
+    res.render("productos");
   },
 
   carrito: (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/views/carrito.html"));
+    res.render("carrito");
   },
 
   add: (req, res) => {},
@@ -13,7 +13,7 @@ const controlador = {
   destroy: (req, res) => {},
 
   single: (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/views/producto.html"));
+    res.render("detallesProducto");
   },
 };
 
