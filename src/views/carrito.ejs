@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- head -->
+  <%- include('partials/head', {title:'Inicio'}) %>
+  <body>
+    <!-- /Header -->
+    <%- include('partials/header') %>
+    <!-- content -->
+    <main>
+      <div id="card">
+        <h2>Carrito</h2>
+        <div class="card__layout">
+          <section class="card__items">
+            <div class="item">
+              <figure class="item__img">
+                <img src="../assets/img/comic-issues/invincible_1.jpg" alt="" />
+              </figure>
+              <h4>Invincible #60</h4>
+              <input type="text" class="item__cantidad" value="1" />
+              <p>$ 2.99</p>
+            </div>
+            <div class="item">
+              <figure class="item__img">
+                <img src="../assets/img/comic-issues/invincible_1.jpg" alt="" />
+              </figure>
+              <h4>Invincible #60</h4>
+              <input type="text" class="item__cantidad" value="1" />
+              <p>$ 2.99</p>
+            </div>
+          </section>
+          <hr class="hide-md" />
+          <section class="card__total">
+            <div class="total">
+              <h2>Total</h2>
+              <p>$ 5.99</p>
+            </div>
+            <form id="pagar" action="">
+              <button class="btn-addcart">Pagar</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+    <%- include('partials/footer')%>
+  </body>
+</html>

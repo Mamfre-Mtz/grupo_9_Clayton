@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- head -->
+  <%- include('partials/head', {title:'Inicio'}) %>
+  <body>
+    <!-- /Header -->
+    <%- include('partials/header') %>
+    <!-- content -->
+    <main>
+      <h3 class="search__result">Productos</h3>
+      <div id="products__search">
+        <% for (let i=0; i<=10; i++){ %>
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3 issue-margin">
+              <img
+                src="/assets/img/comic-issues/dc_1.jpg"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="/assets/img/dc-logo.png" alt="Placeholder image" />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">John Smith</p>
+                <p class="subtitle is-6">@johnsmith</p>
+              </div>
+            </div>
+
+            <div class="content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              nec iaculis mauris. <a>@bulmaio</a>.
+              <a href="#">#css</a>
+              <a href="#">#responsive</a>
+              <br />
+              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            </div>
+          </div>
+        </div>
+        <%}%>
+      </div>
+    </main>
+    <%- include('partials/footer')%>
+  </body>
+</html>
