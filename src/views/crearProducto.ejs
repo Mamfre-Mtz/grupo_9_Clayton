@@ -6,7 +6,95 @@
     <!-- /Header -->
     <%- include('partials/header') %>
 
-    <h2>Crear producto</h2>
+    <h2 class="subtitle-margin">Crear producto</h2>
+    <section>
+      <form action="/products/store" method="POST" id="product__form">
+        <div>
+          <label for="productStatus">Disponible</label>
+          <input
+            type="checkbox"
+            name="status"
+            id="productStatus"
+            checked="checked"
+            class="productAvailable"
+          />
+        </div>
+        <div>
+          <label for="productName"> Nombre del producto</label>
+          <input
+            type="text"
+            name="name"
+            id="productName"
+            class="input is-info"
+          />
+        </div>
+        <div>
+          <label for="productEditorial">Editorial</label>
+          <select name="editorial" id="productEditorial" class="input is-info">
+            <option value="DC Comics" name="dc">DC Comics</option>
+            <option value="marvel" name="marvel">Marvel Comics</option>
+            <option value="image" name="image">Image Comics</option>
+          </select>
+        </div>
+        <div>
+          <label for="productWriter">Escrito por</label>
+          <input
+            type="text"
+            name="writer"
+            id="productWriter"
+            class="input is-info"
+          />
+        </div>
+        <div>
+          <label for="productPrice">Precio</label>
+          <input
+            type="number"
+            name="price"
+            id="productPrice"
+            class="input is-info"
+          />
+        </div>
+        <div>
+          <label for="productDiscount">Descuento</label>
+          <input
+            type="number"
+            name="discount"
+            id="productDiscount"
+            class="input is-info"
+          />
+        </div>
+        <div>
+          <label for="productPublish">Fecha publicada</label>
+          <input
+            type="date"
+            name="datePublished"
+            id="productPublish"
+            class="input is-info"
+            value="2018-01-01"
+            min="2010-01-01"
+            max="2021-12-31"
+          />
+        </div>
+        <!-- <div>
+          <label for="productCover">Imagen del producto</label>
+          <input type="file" name="cover" id="productCover" />
+        </div> -->
+        <div>
+          <label for="productDescription">Descripción</label>
+          <br />
+          <textarea
+            name="description"
+            id="productDescription"
+            cols="30"
+            rows="10"
+            class="productDescription"
+          ></textarea>
+        </div>
+        <div class="" style="display: flex; justify-content: center">
+          <button type="submit" class="btn-addcart">Añadir producto</button>
+        </div>
+      </form>
+    </section>
 
     <%- include('partials/footer')%>
   </body>

@@ -1,53 +1,45 @@
-#pieDePagina{
+#pieDePagina {
+  background-color: $color-gray-light;
+  color: #fff;
 
-    background-color: $color-gray-light;
-    color:#fff ;
-    
-
-    section.enlaces ul{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        padding: 5%;
-            li a{
-                align-self: center;
-                font-family:$font-secundary;
-                font-size: 1.3rem;
-                color: #fff;
-                  
-                
-            
-        }
+  section.enlaces ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5%;
+    li a {
+      align-self: center;
+      font-family: $font-secundary;
+      font-size: 1.3rem;
+      color: #fff;
     }
-    section.metodosDePago{
-
-        display: grid;
-        margin: 0px 10px;
-        border-top: solid 1px gainsboro;
-        border-bottom: solid 1px gainsboro;
-        p{
-            font-family: $font-secundary;
-            font-size: 1.3rem;
-            text-align: center;
-            
-
-        }
-        img{
-            justify-self: center;
-            width: 60%;
-            height: auto;
-            
-        }
+  }
+  section.metodosDePago {
+    display: grid;
+    margin: 0px 10px;
+    border-top: solid 1px gainsboro;
+    border-bottom: solid 1px gainsboro;
+    p {
+      font-family: $font-secundary;
+      font-size: 1.3rem;
+      text-align: center;
     }
-    div.copyright{
-        padding-bottom: 5%;
-        p{
-            font-family: $font-secundary;
-            color: gainsboro;
-            font-size: 1.3rem;
-            font-weight: lighter;
-            text-align: center;
-        }
+    img {
+      justify-self: center;
+      max-width: 300px;
+      width: 60%;
+      height: auto;
     }
+  }
+  div.copyright {
+    padding-bottom: 5%;
+    p {
+      font-family: $font-secundary;
+      color: gainsboro;
+      font-size: 1.3rem;
+      font-weight: lighter;
+      text-align: center;
+    }
+  }
 }

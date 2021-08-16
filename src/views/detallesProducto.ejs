@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
   <!-- head -->
-  <%- include('partials/head', {title:'Inicio'}) %>
+  <%let producto = singleProduct[0]%> <%- include('partials/head',
+  {title:'producto.name'}) %>
   <body>
     <!-- /Header -->
     <%- include('partials/header') %>
@@ -10,26 +11,31 @@
         <section class="product__image">
           <figure>
             <img
-              src="../assets/img/comic-issues/invincible_1.jpg"
+              src="../assets/img/comic-issues/<%-producto.cover%>"
               alt="product"
             />
           </figure>
         </section>
         <section class="product__info">
           <div class="info">
-            <h3 class="info__title">Invincible #60</h3>
+            <h3 class="info__title"><%-producto.name%></h3>
             <div class="info__specs">
-              <p>Editorial Image</p>
-              <p>Escrito por by Robert Kirkman</p>
-              <p>Publicado en 12/06/2010</p>
+              <p>Editorial <%-producto.editorial%></p>
+              <p>Escrito por by <%-producto.writer%></p>
+              <p>Publicado en <%-producto.releaseDate%></p>
             </div>
             <div class="info__precios">
-              <p>$ 3.99</p>
-              <p>$ 2.99</p>
-              <p class="disscount">25% off</p>
+              <p style="text-decoration: line-through">$ <%-producto.price%></p>
+              <p>
+                $
+                <%-producto.discount>0?Math.round(producto.price*(1-producto.discount/100)):producto.price%>
+              </p>
+              <p class="disscount"><%-producto.discount%>% off</p>
             </div>
             <form id="addcart-product" action="">
-              <p class="available">disponible</p>
+              <p class="<%-producto.available?'available':'unavailable'%>">
+                <%-producto.available?"disponible":"No disponible"%>
+              </p>
               <button class="btn-addcart">Añadir al carrito</button>
             </form>
           </div>
@@ -37,12 +43,7 @@
         <div class="product__description">
           <h3 class="">Descripción</h3>
           <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Repellendus, facere sapiente! Totam officiis id velit, eaque unde
-            rem impedit assumenda dolor, ipsa illo pariatur, nam dignissimos ab?
-            Similique, esse repellendus.
-          </p>
+          <p><%-producto.description%></p>
         </div>
       </div>
     </main>

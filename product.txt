@@ -1,0 +1,13 @@
+Productos
+{
+    id:"int",
+    name:"text",
+    editorial:"text",
+    writer:"text",
+    available:"bool",
+    price:"int",
+    cover:"url",
+    description:"text"
+    releaseDate:"date"
+    discount:"percentage"
+}

@@ -143,6 +143,11 @@ section#registro {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
     }
+    .unavailable {
+      color: #e60023;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
     @media (min-width: $desktop) {
       align-items: center;
       flex-direction: row;
@@ -240,4 +245,33 @@ section#registro {
   grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   margin: 0rem 8%;
   padding-bottom: 4rem;
+}
+
+#product__form {
+  display: grid;
+  gap: 2.5rem;
+  margin: 0rem 8% 5rem;
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  label {
+    font-size: 1.8rem;
+    margin-right: 2rem;
+  }
+  input,
+  select {
+    font-size: 1.6rem;
+    height: 40px;
+    width: 50%;
+  }
+  .productAvailable {
+    height: 20px;
+  }
+  .productDescription {
+    height: 130px;
+    padding: 1rem;
+    width: 100%;
+  }
 }

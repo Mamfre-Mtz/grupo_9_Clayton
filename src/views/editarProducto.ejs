@@ -1,12 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
   <!-- head -->
-  <%- include('partials/head', {title:'Inicio'}) %>
+  <%let producto = singleProduct[0]%> <%- include('partials/head',
+  {title:'Inicio'}) %>
   <body>
     <!-- /Header -->
     <%- include('partials/header') %>
 
-    <h2>editar producto</h2>
+    <h2 class="subtitle-margin">Editar producto <%-producto.name%></h2>
+    <section>
+      <form
+        action="/products/<%-producto.id%>/save?_method=PUT"
+        method="POST"
+        id="product__form"
+      >
+        <div>
+          <label for="productStatus">Disponible</label>
+          <input
+            type="checkbox"
+            name="available"
+            id="productStatus"
+            value="<%-producto.available%>"
+            class="productAvailable"
+          />
+        </div>
+        <div>
+          <label for="productName"> Nombre del producto</label>
+          <input
+            type="text"
+            name="name"
+            id="productName"
+            class="input is-info"
+            value="<%-producto.name%>"
+          />
+        </div>
+        <div>
+          <label for="productEditorial">Editorial</label>
+          <select name="editorial" id="productEditorial" class="input is-info">
+            <option
+              value="dc"
+              name="dc"
+              selected="<%- producto.editorial =='DC Comics'? true :false %>"
+            >
+              DC Comics
+            </option>
+            <option
+              value="marvel"
+              name="marvel"
+              selected="<%- producto.editorial =='marvel'? true :false %>"
+            >
+              Marvel Comics
+            </option>
+            <option
+              value="image"
+              name="image"
+              selected="<%- producto.editorial =='image'? true :false %>"
+            >
+              Image Comics
+            </option>
+          </select>
+        </div>
+        <div>
+          <label for="productWriter">Escrito por</label>
+          <input
+            type="text"
+            name="writer"
+            id="productWriter"
+            class="input is-info"
+            value="<%-producto.writer%>"
+          />
+        </div>
+        <div>
+          <label for="productPrice">Precio</label>
+          <input
+            type="number"
+            name="price"
+            id="productPrice"
+            class="input is-info"
+            value="<%-producto.price%>"
+          />
+        </div>
+        <div>
+          <label for="productDiscount">Descuento</label>
+          <input
+            type="number"
+            name="discount"
+            id="productDiscount"
+            class="input is-info"
+            value="<%-producto.discount%>"
+          />
+        </div>
+        <div>
+          <label for="productPublish">Fecha publicada</label>
+          <input
+            type="date"
+            name="releaseDate"
+            id="productPublish"
+            class="input is-info"
+            value="<%-new Date('producto.releaseDate')%>"
+            min="2010-01-01"
+            max="2021-12-31"
+          />
+        </div>
+        <!-- <div>
+          <label for="productCover">Imagen del producto</label>
+          <input type="file" name="cover" id="productCover" />
+        </div> -->
+        <div>
+          <label for="productDescription">Descripción</label>
+          <br />
+          <textarea
+            name="description"
+            id="productDescription"
+            cols="30"
+            rows="10"
+            class="productDescription"
+          >
+<%-producto.description%></textarea
+          >
+        </div>
+        <div class="" style="display: flex; justify-content: center">
+          <button type="submit" class="btn-addcart">Guardar producto</button>
+        </div>
+      </form>
+
+      <form
+        action="/products/<%-producto.id%>/borrar?_method=DELETE"
+        method="POST"
+      >
+        <div class="" style="display: flex; justify-content: center">
+          <button type="submit" class="btn-addcart">Eliminar producto</button>
+        </div>
+      </form>
+    </section>
 
     <%- include('partials/footer')%>
   </body>
