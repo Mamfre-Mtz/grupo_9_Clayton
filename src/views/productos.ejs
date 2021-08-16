@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <!-- head -->
-  <%- include('partials/head', {title:'Inicio'}) %>
+  <%- include('partials/head', {title:'Todos los Comics'}) %>
   <body>
     <!-- /Header -->
     <%- include('partials/header') %>
@@ -9,38 +9,41 @@
     <main>
       <h3 class="search__result">Productos</h3>
       <div id="products__search">
-        <% for (let i=0; i<=10; i++){ %>
+        <% for (producto of productos){ %>
         <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3 issue-margin">
-              <img
-                src="/assets/img/comic-issues/dc_1.jpg"
-                alt="Placeholder image"
-              />
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="/assets/img/dc-logo.png" alt="Placeholder image" />
-                </figure>
+          <a href="/products/<%-producto.id%>">
+            <div class="card-image">
+              <figure class="image is-4by3 issue-margin">
+                <img
+                  src="/assets/img/comic-issues/<%-producto.cover%>"
+                  alt="Placeholder image"
+                />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img
+                      src="/assets/img/<%-producto.editorial%>-logo.png"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4"><%-producto.name%></p>
+                  <p class="subtitle is-6"><%-producto.editorial%></p>
+                </div>
               </div>
-              <div class="media-content">
-                <p class="title is-4">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
+            </a>
+              <div class="content">
+                <p><%-producto.description%></p>
+                <br />
+                <span>#by <%-producto.writer%></span>
+                <br />
+                <time>Fecha de salida: <%-producto.releaseDate%></time>
               </div>
             </div>
-
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              nec iaculis mauris. <a>@bulmaio</a>.
-              <a href="#">#css</a>
-              <a href="#">#responsive</a>
-              <br />
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-            </div>
-          </div>
         </div>
         <%}%>
       </div>
