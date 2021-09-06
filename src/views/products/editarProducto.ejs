@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
   <!-- head -->
-  <%let producto = singleProduct[0]%> <%- include('partials/head',
+  <%let producto = singleProduct[0]%> <%- include('../partials/head',
   {title:'Inicio'}) %>
   <body>
     <!-- /Header -->
-    <%- include('partials/header') %>
+    <%- include('../partials/header') %>
 
     <h2 class="subtitle-margin">Editar producto <%-producto.name%></h2>
     <section>
@@ -134,6 +134,6 @@
       </form>
     </section>
 
-    <%- include('partials/footer')%>
+    <%- include('../partials/footer')%>
   </body>
 </html>

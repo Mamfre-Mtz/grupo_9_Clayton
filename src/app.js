@@ -6,6 +6,7 @@ const methodOverride = require("method-override"); // Pasar poder usar los méto
 const app = express();
 const rutasProductos = require("./Routes/productosRoutes");
 const rutasMain = require("./Routes/mainRoutes");
+const rutasUsuarios = require("./Routes/userRoutes");
 
 app.listen(3000, () => {
   console.log("Server 3000 already...");
@@ -22,7 +23,7 @@ app.use(cookieParser());
 app.use(methodOverride("_method")); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 
 app.use("/", rutasMain);
-
 app.use("/products", rutasProductos);
+app.use("/users", rutasUsuarios);
 
 module.exports = app;

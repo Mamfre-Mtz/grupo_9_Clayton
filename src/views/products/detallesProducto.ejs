@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
   <!-- head -->
-  <%let producto = singleProduct[0]%> <%- include('partials/head',
+  <%let producto = singleProduct[0]%> <%- include('../partials/head',
   {title:'producto.name'}) %>
   <body>
     <!-- /Header -->
-    <%- include('partials/header') %>
+    <%- include('../partials/header') %>
     <main>
       <div id="single__product">
         <section class="product__image">
@@ -48,6 +48,6 @@
       </div>
     </main>
 
-    <%- include('partials/footer')%>
+    <%- include('../partials/footer')%>
   </body>
 </html>

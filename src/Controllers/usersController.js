@@ -4,19 +4,19 @@ const { v4: getID } = require("uuid");
 const { render } = require("../app");
 const { get } = require("https");
 
-const productsFilePath = path.join(__dirname, "../Database/products.json");
+const productsFilePath = path.join(__dirname, "../Database/usersDb.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const controlador = {
   products: (req, res) => {
     // Render todos los productos
     let productos = products;
-    res.render("products/productos", { productos });
+    res.render(__dirname + "/products/productos", { productos });
   },
 
   add: (req, res) => {
     //Te lleva a la lista de añadir productos
-    res.render("products/crearProducto");
+    res.render("crearProducto");
   },
 
   store: (req, res) => {
@@ -43,7 +43,7 @@ const controlador = {
     // Te lleva a la vista de editar producto
     let single = req.params.id;
     let singleProduct = products.filter((product) => product.id == single);
-    res.render("products/editarProducto", { singleProduct });
+    res.render("editarProducto", { singleProduct });
   },
 
   save: (req, res) => {
@@ -76,7 +76,7 @@ const controlador = {
     // Trae la vista detalles del producto
     let single = req.params.id;
     let singleProduct = products.filter((product) => product.id == single);
-    res.render("products/detallesProducto", { singleProduct });
+    res.render("detallesProducto", { singleProduct });
   },
 };
 

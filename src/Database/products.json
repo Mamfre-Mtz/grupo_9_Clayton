@@ -309,5 +309,17 @@
     "releaseDate": "5/19/2021",
     "discount": 36,
     "coverImage": "Image"
+  },
+  {
+    "id": "e6c084fe-de40-45b0-8f81-23c9914bf915",
+    "name": "testo",
+    "editorial": "DC Comics",
+    "writer": "dasdsa",
+    "available": "on",
+    "price": "5000",
+    "cover": "spidey_05.jpg",
+    "description": "asdasdsad",
+    "releaseDate": "2018-01-01",
+    "discount": ""
   }
 ]
