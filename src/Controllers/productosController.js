@@ -11,12 +11,12 @@ const controlador = {
   products: (req, res) => {
     // Render todos los productos
     let productos = products;
-    res.render("productos", { productos });
+    res.render("products/productos", { productos });
   },
 
   add: (req, res) => {
     //Te lleva a la lista de añadir productos
-    res.render("crearProducto");
+    res.render("products/crearProducto");
   },
 
   store: (req, res) => {
@@ -43,7 +43,7 @@ const controlador = {
     // Te lleva a la vista de editar producto
     let single = req.params.id;
     let singleProduct = products.filter((product) => product.id == single);
-    res.render("editarProducto", { singleProduct });
+    res.render("products/editarProducto", { singleProduct });
   },
 
   save: (req, res) => {
@@ -76,7 +76,7 @@ const controlador = {
     // Trae la vista detalles del producto
     let single = req.params.id;
     let singleProduct = products.filter((product) => product.id == single);
-    res.render("detallesProducto", { singleProduct });
+    res.render("products/detallesProducto", { singleProduct });
   },
 };
 

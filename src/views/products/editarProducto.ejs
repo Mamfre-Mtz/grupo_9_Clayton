@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
   <!-- head -->
-  <%let producto = singleProduct[0]%> <%- include('partials/head',
+  <%let producto = singleProduct[0]%> <%- include('../partials/head',
   {title:'Inicio'}) %>
   <body>
     <!-- /Header -->
-    <%- include('partials/header') %>
+    <%- include('../partials/header') %>
 
     <h2 class="subtitle-margin">Editar producto <%-producto.name%></h2>
     <section>
@@ -128,12 +128,15 @@
         action="/products/<%-producto.id%>/borrar?_method=DELETE"
         method="POST"
       >
-        <div class="" style="display: flex; justify-content: center">
+        <div
+          class=""
+          style="display: flex; justify-content: center; margin-bottom: 4rem"
+        >
           <button type="submit" class="btn-addcart">Eliminar producto</button>
         </div>
       </form>
     </section>
 
-    <%- include('partials/footer')%>
+    <%- include('../partials/footer')%>
   </body>
 </html>
