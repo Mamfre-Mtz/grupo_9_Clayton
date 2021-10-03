@@ -1,83 +1,56 @@
 const path = require("path");
 const fs = require("fs");
+const { validationResult } = require("express-validator");
+const bcryptjs = require("bcryptjs");
 const { v4: getID } = require("uuid");
-const { render } = require("../app");
-const { get } = require("https");
+const User = require("../Models/User");
 
-const productsFilePath = path.join(__dirname, "../Database/usersDb.json");
-const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-
-const controlador = {
-  products: (req, res) => {
-    // Render todos los productos
-    let productos = products;
-    res.render(__dirname + "/products/productos", { productos });
+const controladorUser = {
+  login: (req, res) => {
+    return res.render("users/login");
   },
-
-  add: (req, res) => {
-    //Te lleva a la lista de añadir productos
-    res.render("crearProducto");
-  },
-
-  store: (req, res) => {
-    // Guarda el nuevo producto
-    console.log(req.body);
-    let newproducto = {
-      id: getID(),
-      name: req.body.name,
-      editorial: req.body.editorial,
-      writer: req.body.writer,
-      available: req.body.status,
-      price: req.body.price,
-      cover: "spidey_05.jpg",
-      description: req.body.description,
-      releaseDate: req.body.datePublished,
-      discount: req.body.discount,
-    };
-    products.push(newproducto);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-    res.redirect("/products");
-  },
-
-  edit: (req, res) => {
-    // Te lleva a la vista de editar producto
-    let single = req.params.id;
-    let singleProduct = products.filter((product) => product.id == single);
-    res.render("editarProducto", { singleProduct });
-  },
-
-  save: (req, res) => {
-    // Guarda los cambios en el producto
-    for (product of products) {
-      if (product.id == req.params.id) {
-        for (key in product) {
-          if (key !== "id" && key !== "cover" && key !== "coverImage") {
-            product[key] = req.body[key];
-          }
-        }
-        break;
+  processLogin: (req, res) => {
+    let userReady = User.findByField("email", req.body.email);
+    if (userReady) {
+      let checkpass = bcryptjs.compareSync(
+        req.body.password,
+        userReady.password
+      );
+      if (checkpass) {
+        req.session.userLogged = userReady;
+        return res.render("users/perfil");
       }
     }
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-    res.redirect("/products/" + req.params.id);
+    return res.render("users/login", {
+      errors: [{ msg: "Credenciales incorrectas" }],
+    });
   },
 
-  destroy: (req, res) => {
-    // Elimina el producto
-    let deleteproduct = products.findIndex(
-      (product) => product.id == req.params.id
-    );
-    products.splice(deleteproduct, 1);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-    res.redirect("/products");
+  register: (req, res) => {
+    return res.render("users/registro");
   },
 
-  single: (req, res) => {
-    // Trae la vista detalles del producto
-    let single = req.params.id;
-    let singleProduct = products.filter((product) => product.id == single);
-    res.render("detallesProducto", { singleProduct });
+  processRegister: (req, res) => {
+    const resultV = validationResult(req);
+    if (resultV.errors.length > 0) {
+      return res.render("users/registro", { errors: resultV.errors });
+    }
+    if (User.findByField("email", req.body.email)) {
+      return res.render("users/registro", {
+        errors: [{ msg: "Este correo ya se ha registrado", param: "" }],
+      });
+    }
+    let usercreate = {
+      ...req.body,
+      password: bcryptjs.hashSync(req.body.password, 10),
+      avatar: req.file.filename,
+    };
+    User.create(usercreate);
+    return res.render("users/login");
+  },
+  profile: (req, res) => {
+    return res.send("profile");
   },
 };
 
-module.exports = controlador;
+module.exports = controladorUser;

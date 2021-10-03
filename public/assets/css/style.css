@@ -65,6 +65,25 @@ body .btn-addcart {
 body .subtitle-margin {
   margin-left: 8%; }
 
+body .text-base {
+  font-size: 1.6rem; }
+
+body .text-small {
+  font-size: 1rem; }
+
+body .text-md {
+  font-size: 1.8rem; }
+
+body .text-lg {
+  font-size: 2rem; }
+
+body .text-2xl {
+  font-size: 2.5rem; }
+
+body .error--text {
+  font-size: 1.8rem;
+  color: lightcoral; }
+
 #head {
   background-color: #00bcf0;
   display: flex;
@@ -209,11 +228,8 @@ section#registro {
       padding-left: 20px;
       width: 90%; }
     section#registro .formulario_contacto > button {
-      border-radius: 50px;
       cursor: pointer;
-      justify-self: center;
-      max-width: 300px;
-      width: 10rem; }
+      justify-self: center; }
 
 #single__product {
   display: grid;

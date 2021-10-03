@@ -1,22 +1,22 @@
 const express = require("express");
-const multer = require("multer");
+const uploadFile = require("../Middlewares/multerMiddleware");
+const validations = require("../Middlewares/validationsMiddleware");
+const path = require("path");
 const router = express.Router();
-const usersController = require("../Controllers/usersController");
+const controladorUser = require("../Controllers/usersController");
 
-router.get("/", usersController.products);
+// Login
+router.get("/login", controladorUser.login);
+router.post("/login", controladorUser.processLogin);
 
-// Add One Product
-router.get("/create", usersController.add);
-router.post("/store", usersController.store);
+// Registro
+router.get("/register", controladorUser.register);
+router.post(
+  "/register",
+  uploadFile.single("pp"),
+  validations,
+  controladorUser.processRegister
+);
 
-// Get One Product
-router.get("/:id", usersController.single);
-
-//Edit One Product
-router.get("/:id/edit", usersController.edit);
-router.put("/:id/save", usersController.save);
-
-// Delete One Product
-router.delete("/:id/borrar", usersController.destroy);
-
+// Perfil
 module.exports = router;

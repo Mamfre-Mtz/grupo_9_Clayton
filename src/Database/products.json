@@ -321,5 +321,17 @@
     "description": "asdasdsad",
     "releaseDate": "2018-01-01",
     "discount": ""
+  },
+  {
+    "id": "68e286f4-a1ab-4db9-865c-30fa0c4660e7",
+    "name": "Alfredo Martinez",
+    "editorial": "DC Comics",
+    "writer": "Carl Potts",
+    "available": "on",
+    "price": "5000",
+    "cover": "spidey_05.jpg",
+    "description": "asd",
+    "releaseDate": "2018-01-01",
+    "discount": "10"
   }
 ]

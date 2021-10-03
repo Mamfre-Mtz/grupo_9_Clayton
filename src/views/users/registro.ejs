@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- head -->
+  <%- include('../partials/head', {title:'Inicio'}) %>
+  <body>
+    <!-- /Header -->
+    <%- include('../partials/header') %>
+
+    <section id="registro" class="fill-secondary">
+      <% if(locals.errors) {%> <% for (const error of errors){ %>
+      <p class="error--text"><%-error.msg%></p>
+      <%}}%>
+      <div class="">
+        <h2>Registrate</h2>
+        <form
+          action="/users/register"
+          method="POST"
+          enctype="multipart/form-data"
+          class="formulario_contacto"
+        >
+          <input
+            class="register--input"
+            name="user_name"
+            type="text"
+            required
+            placeholder="Nombre de usuario"
+          />
+          <input
+            class="register--input"
+            name="email"
+            id="email"
+            type="email"
+            required
+            placeholder="Correo electrónico"
+          />
+          <input
+            class="register--input"
+            name="password"
+            type="password"
+            required
+            placeholder="Contraseña"
+          />
+          <!-- <input
+            class="register--input"
+            type="password"
+            required
+            placeholder="Repetir contraseña"
+          /> -->
+
+          <h3 class="text-lg">Datos del usuario</h3>
+          <input class="register--input" name="age" type="date" required />
+          <input
+            class="register--input"
+            name="city"
+            type="text"
+            required
+            placeholder="Ciudad"
+          />
+          <select class="register--input" name="pais" required>
+            <option value="">País</option>
+            <% let countries = ['Argentina', 'Brasil', 'Colombia', 'Chile',
+            'Ecuador','México', 'Perú','Venezuela']; %> <% for (const countrie
+            of countries){%>
+            <option value="<%=countrie %>"><%=countrie%></option>
+            <%}%>
+          </select>
+          <input
+            class="register--input"
+            name="direccion"
+            type="text"
+            required
+            placeholder="Dirección"
+          />
+          <input
+            class="register--input"
+            name="cp"
+            type="text"
+            placeholder="Código postal"
+          />
+          <div class="register--input">
+            <label class="text-md" for="pp"> Foto de perfil </label>
+            <input class="ml-6" name="pp" type="file" id="pp" />
+          </div>
+          <button class="fill-primary btn-addcart">Registrar</button>
+        </form>
+      </div>
+    </section>
+
+    <%- include('../partials/footer')%>
+  </body>
+</html>

@@ -1,7 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const { render } = require("../app");
-
+const bcrypt = require("bcryptjs");
 const productsFilePath = path.join(__dirname, "../Database/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
@@ -20,6 +19,15 @@ const controladorMain = {
 
   card: (req, res) => {
     res.render("carrito");
+  },
+  newuser: (req, res, next) => {
+    const file = req.file;
+    if (!file) {
+      const error = new Error("Por favor seleccione un archivo valido");
+      error.httpStatusCode = 400;
+      return next(error);
+    }
+    res.send("hi");
   },
 };
 module.exports = controladorMain;
