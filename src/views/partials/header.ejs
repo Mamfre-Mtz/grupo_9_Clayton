@@ -55,7 +55,13 @@
           <a href="/card" class="button is-primary">
             <strong>Carrito</strong>
           </a>
-          <a href="/users/register" class="button is-light"> Log in </a>
+          <% if (locals.isLogged){ %>
+          <a href="/users/register" class="button is-light">
+            hola <%-locals.userLogged.user_name%>
+          </a>
+          <%} else {%>
+          <a href="/users/register" class="button is-light"> Regístrate </a>
+          <%}%>
         </div>
       </div>
     </div>
