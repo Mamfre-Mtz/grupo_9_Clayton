@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- head -->
+  <%- include('partials/head', {title:'clave'}) %>
+  <body>
+    <!-- /Header -->
+    <%- include('partials/header') %>
+    <!-- content -->
+    <main>
+      <h3 class="search__result">Resultados de: <%-clave.busqueda%></h3>
+      <div id="products__search">
+        <% for (producto of productos){ %>
+        <div class="card">
+          <a href="/products/<%-producto.id%>">
+            <div class="card-image">
+              <figure class="image is-4by3 issue-margin">
+                <img
+                  src="/assets/img/comic-issues/<%-producto.cover%>"
+                  alt="Placeholder image"
+                />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img
+                      src="/assets/img/<%-producto.editorial%>-logo.png"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4"><%-producto.name%></p>
+                  <p class="subtitle is-6"><%-producto.editorial%></p>
+                </div>
+              </div>
+            </a>
+              <div class="content">
+                <p><%-producto.description%></p>
+                <br />
+                <span>#by <%-producto.writer%></span>
+                <br />
+                <time>Fecha de salida: <%-producto.releaseDate%></time>
+              </div>
+            </div>
+        </div>
+        <%}%>
+      </div>
+    </main>
+    <%- include('partials/footer')%>
+  </body>
+</html>

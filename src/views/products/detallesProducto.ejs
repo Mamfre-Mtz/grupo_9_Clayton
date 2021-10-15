@@ -32,7 +32,7 @@
               </p>
               <p class="disscount"><%-producto.discount%>% off</p>
             </div>
-            <form id="addcart-product" action="">
+            <form id="addcart-product" action="/card" method="GET">
               <p class="<%-producto.available?'available':'unavailable'%>">
                 <%-producto.available?"disponible":"No disponible"%>
               </p>
