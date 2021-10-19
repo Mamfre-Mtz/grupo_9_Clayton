@@ -373,3 +373,11 @@ section#registro {
     height: 130px;
     padding: 1rem;
     width: 100%; }
+
+.user__profile {
+  margin: 2rem 3rem; }
+  .user__profile .avatar {
+    border-radius: 50%;
+    height: 300px;
+    max-width: 300px;
+    width: 300px; }

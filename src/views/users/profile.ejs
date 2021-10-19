@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- head -->
+  <%- include('../partials/head', {title:'Inicio'}) %>
+  <body>
+    <!-- /Header -->
+    <%- include('../partials/header') %>
+    <section class="user__profile">
+      <h2>Hola <%-user.user_name%></h2>
+      <figure>
+        <img
+          src="/assets/img/users/<%-user.avatar%>"
+          class="avatar"
+          alt="Avatar"
+        />
+      </figure>
+      <p><%-user.email%></p>
+    </section>
+
+    <!-- Footer -->
+    <%- include('../partials/footer')%>
+  </body>
+</html>

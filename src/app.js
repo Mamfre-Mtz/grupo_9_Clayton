@@ -2,6 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const session = require("express-session");
+const isloggedMid = require("./Middlewares/userloggedMiddleware");
 const methodOverride = require("method-override"); // Pasar poder usar los métodos PUT y DELETE
 const app = express();
 const rutasProductos = require("./Routes/productosRoutes");
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use(
   session({
     secret: "shh",
@@ -27,6 +29,7 @@ app.use(
     saveUninitialized: false,
   })
 );
+app.use(isloggedMid);
 app.use(methodOverride("_method")); // Pasar poder pasar el method="POST" en el formulario por PUT y DELETE
 
 app.use("/", rutasMain);

@@ -2,14 +2,22 @@
   <a href="/" class="logo">
     <img src="/assets/img/mexicangeek2.png" alt="" />
   </a>
-  <input type="search" class="busqueda" />
+  <form action="/search" method="GET" class="busqueda">
+    <input type="search" name="keywords" class="busqueda" />
+  </form>
   <div class="login">
     <a href="/card" class="color-second">
       <i class="fas fa-shopping-cart"></i>
     </a>
+    <% if (locals.isLogged){ %>
+    <a href="/users/logout" class="color-second">
+      <i class="fas fa-sign-out-alt"></i>
+    </a>
+    <%} else {%>
     <a href="/users/login" class="color-second">
       <i class="fas fa-sign-in-alt"></i>
     </a>
+    <%}%>
   </div>
   <img src="/assets/img/quetzi2.png" class="sans-face" alt="" />
 </header>
@@ -20,7 +28,7 @@
       class="navbar-burger"
       aria-label="menu"
       aria-expanded="false"
-      data-target="navbarBasicExample"
+      data-target="navbarBasic"
     >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -28,13 +36,13 @@
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarBasic" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item"> Inicio </a>
+      <a href="/products" class="navbar-item"> Todos </a>
 
-      <a class="navbar-item"> DC Comics </a>
-      <a class="navbar-item"> Marvel Comics </a>
-      <a class="navbar-item"> Image Comics </a>
+      <a href="/search?keywords=DC" class="navbar-item"> DC Comics </a>
+      <a href="/search?keywords=Marvel" class="navbar-item"> Marvel Comics </a>
+      <a href="/search?keywords=Image" class="navbar-item"> Image Comics </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link"> Más </a>
@@ -55,7 +63,13 @@
           <a href="/card" class="button is-primary">
             <strong>Carrito</strong>
           </a>
-          <a href="/users/register" class="button is-light"> Log in </a>
+          <% if (locals.isLogged){ %>
+          <a href="/users/register" class="button is-light">
+            hola <%-locals.userLogged.user_name%>
+          </a>
+          <%} else {%>
+          <a href="/users/register" class="button is-light"> Regístrate </a>
+          <%}%>
         </div>
       </div>
     </div>

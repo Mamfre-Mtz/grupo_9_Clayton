@@ -6,6 +6,9 @@ const { v4: getID } = require("uuid");
 const User = require("../Models/User");
 
 const controladorUser = {
+  users: (req, res) => {
+    return res.send("users");
+  },
   login: (req, res) => {
     return res.render("users/login");
   },
@@ -17,10 +20,15 @@ const controladorUser = {
         userReady.password
       );
       if (checkpass) {
+        delete userReady.password;
         req.session.userLogged = userReady;
-        return res.render("users/perfil");
+        if (req.body.recordatorio) {
+          res.cookie("userEmail", req.body.email);
+        }
+        return res.redirect("/users/profile");
       }
     }
+
     return res.render("users/login", {
       errors: [{ msg: "Credenciales incorrectas" }],
     });
@@ -49,7 +57,12 @@ const controladorUser = {
     return res.render("users/login");
   },
   profile: (req, res) => {
-    return res.send("profile");
+    return res.render("users/profile", { user: req.session.userLogged });
+  },
+  logout: (req, res) => {
+    req.session.destroy();
+    res.clearCookie("userEmail");
+    return res.redirect("/users/login");
   },
 };
 

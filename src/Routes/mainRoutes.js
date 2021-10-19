@@ -22,6 +22,8 @@ router.get("/", controladorMain.index);
 
 router.get("/card", controladorMain.card);
 
+router.get("/search", controladorMain.search);
+
 // router.get("/login", controladorMain.login);
 
 // router.get("/register", controladorMain.register);

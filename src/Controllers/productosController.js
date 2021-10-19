@@ -4,14 +4,23 @@ const { v4: getID } = require("uuid");
 const { render } = require("../app");
 const { get } = require("https");
 
-const productsFilePath = path.join(__dirname, "../Database/products.json");
+const productsFilePath = path.join(__dirname, "../Database_test/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+const db = require("../database/models");
+const sequelize = db.sequelize;
+const Comic = db.comic;
 
 const controlador = {
   products: (req, res) => {
     // Render todos los productos
-    let productos = products;
-    res.render("products/productos", { productos });
+    Comic.findAll()
+      .then((comics) => {
+        return res.send(comics);
+        // return res.render("products/productos", { productos });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 
   add: (req, res) => {
