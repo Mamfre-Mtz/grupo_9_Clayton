@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const bcrypt = require("bcryptjs");
-const productsFilePath = path.join(__dirname, "../Database/products.json");
+const productsFilePath = path.join(__dirname, "../Database_test/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const controladorMain = {
