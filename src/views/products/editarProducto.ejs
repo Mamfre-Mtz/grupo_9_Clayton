@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <!-- head -->
-  <%let producto = singleProduct[0]%> <%- include('../partials/head',
+  <%let producto = singleProduct%> <%- include('../partials/head',
   {title:'Inicio'}) %>
   <body>
     <!-- /Header -->
@@ -10,7 +10,7 @@
     <h2 class="subtitle-margin">Editar producto <%-producto.name%></h2>
     <section>
       <form
-        action="/products/<%-producto.id%>/save?_method=PUT"
+        action="/products/<%-producto.id%>/edit?_method=PUT"
         method="POST"
         id="product__form"
       >
@@ -18,10 +18,12 @@
           <label for="productStatus">Disponible</label>
           <input
             type="checkbox"
-            name="available"
+            name="status"
             id="productStatus"
-            value="<%-producto.available%>"
             class="productAvailable"
+            <% if(producto.available){ %>
+              checked
+              <%}%>
           />
         </div>
         <div>
@@ -38,23 +40,29 @@
           <label for="productEditorial">Editorial</label>
           <select name="editorial" id="productEditorial" class="input is-info">
             <option
-              value="dc"
+            value="3"
+            name="marvel"
+            <% if(producto.editorial == 3){ %>
+              selected
+              <%}%>
+          >
+            Marvel Comics
+          </option>
+            <option
+              value="2"
               name="dc"
-              selected="<%- producto.editorial =='DC Comics'? true :false %>"
+              <% if(producto.editorial == 2){ %>
+              selected
+              <%}%>
             >
               DC Comics
             </option>
             <option
-              value="marvel"
-              name="marvel"
-              selected="<%- producto.editorial =='marvel'? true :false %>"
-            >
-              Marvel Comics
-            </option>
-            <option
-              value="image"
+              value="1"
               name="image"
-              selected="<%- producto.editorial =='image'? true :false %>"
+              <% if(producto.editorial == 1){ %>
+                selected
+                <%}%>
             >
               Image Comics
             </option>
@@ -62,13 +70,15 @@
         </div>
         <div>
           <label for="productWriter">Escrito por</label>
-          <input
-            type="text"
-            name="writer"
-            id="productWriter"
-            class="input is-info"
-            value="<%-producto.writer%>"
-          />
+          <select name="writer" id="productWriter" class="input is-info">
+            <option value="1" name="Alan Moore">Alan Moore</option>
+            <option value="2" name="Frank Miller">Frank Miller</option>
+            <option value="3" name="Neil Gaiman">Neil Gaiman</option>
+            <option value="4" name="Peter David">Peter David</option>
+            <option value="5" name="Robert Kirkman">Robert Kirkman</option>
+            <option value="6" name="Mark Waid">Mark Waid</option>
+            <option value="7" name="Jim Lee">Jim Lee</option>
+          </select>
         </div>
         <div>
           <label for="productPrice">Precio</label>
@@ -94,10 +104,10 @@
           <label for="productPublish">Fecha publicada</label>
           <input
             type="date"
-            name="releaseDate"
+            name="datePublished"
             id="productPublish"
             class="input is-info"
-            value="<%-new Date('producto.releaseDate')%>"
+            value="<%-producto.datePublished%>"
             min="2010-01-01"
             max="2021-12-31"
           />
@@ -125,7 +135,7 @@
       </form>
 
       <form
-        action="/products/<%-producto.id%>/borrar?_method=DELETE"
+        action="/products/<%-producto.id%>/edit?_method=DELETE"
         method="POST"
       >
         <div

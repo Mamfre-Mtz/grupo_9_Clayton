@@ -37,11 +37,16 @@ module.exports = (sequelize, dataTypes) => {
     deletedAt: false,
   };
   const Product = sequelize.define(alias, cols, config);
+
   Product.associate = function (models) {
-    Product.hasMany(models.comic, {
-      foreignKey: "product_id",
-      as: "producto",
-    });
+    Product.hasOne(
+      models.comic,
+      {
+        foreignKey: "product_id",
+        as: "product_fk",
+      },
+      { onDelete: "CASCADE", hooks: true }
+    );
   };
 
   return Product;

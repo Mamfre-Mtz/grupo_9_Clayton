@@ -6,6 +6,9 @@ module.exports = (sequelize, dataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
+    release_date: {
+      type: dataTypes.DATE,
+    },
   };
   let config = {
     tablename: "comics",
@@ -16,23 +19,20 @@ module.exports = (sequelize, dataTypes) => {
   };
 
   const Comic = sequelize.define(alias, cols, config);
+
   Comic.associate = function (models) {
     Comic.belongsTo(models.editorial, {
       foreignKey: "editorial_id",
-      as: "editorial",
+      as: "editorial_fk",
     });
-  };
 
-  Comic.associate = function (models) {
     Comic.belongsTo(models.product, {
       foreignKey: "product_id",
-      as: "producto",
+      as: "product_fk",
     });
-  };
-  Comic.associate = function (models) {
     Comic.belongsTo(models.writer, {
       foreignKey: "writer_id",
-      as: "writer",
+      as: "writer_fk",
     });
   };
 

@@ -7,16 +7,16 @@ router.get("/", productosController.products);
 
 // Add One Product
 router.get("/create", productosController.add);
-router.post("/store", productosController.store);
+router.post("/create", productosController.store);
 
 // Get One Product
 router.get("/:id", productosController.single);
 
 //Edit One Product
 router.get("/:id/edit", productosController.edit);
-router.put("/:id/save", productosController.save);
+router.put("/:id/edit", productosController.save);
 
 // Delete One Product
-router.delete("/:id/borrar", productosController.destroy);
+router.delete("/:id/edit", productosController.destroy);
 
 module.exports = router;

@@ -8,7 +8,7 @@
 
     <h2 class="subtitle-margin">Crear producto</h2>
     <section>
-      <form action="/products/store" method="POST" id="product__form">
+      <form action="/products/create" method="POST" id="product__form">
         <div>
           <label for="productStatus">Disponible</label>
           <input
@@ -31,19 +31,22 @@
         <div>
           <label for="productEditorial">Editorial</label>
           <select name="editorial" id="productEditorial" class="input is-info">
-            <option value="DC Comics" name="dc">DC Comics</option>
-            <option value="marvel" name="marvel">Marvel Comics</option>
-            <option value="image" name="image">Image Comics</option>
+            <option value="1" name="dc">Marvel Comics</option>
+            <option value="2" name="marvel">DC Comics</option>
+            <option value="3" name="image">Image Comics</option>
           </select>
         </div>
         <div>
           <label for="productWriter">Escrito por</label>
-          <input
-            type="text"
-            name="writer"
-            id="productWriter"
-            class="input is-info"
-          />
+          <select name="writer" id="productWriter" class="input is-info">
+            <option value="1" name="Alan Moore">Alan Moore</option>
+            <option value="2" name="Frank Miller">Frank Miller</option>
+            <option value="3" name="Neil Gaiman">Neil Gaiman</option>
+            <option value="4" name="Peter David">Peter David</option>
+            <option value="5" name="Robert Kirkman">Robert Kirkman</option>
+            <option value="6" name="Mark Waid">Mark Waid</option>
+            <option value="7" name="Jim Lee">Jim Lee</option>
+          </select>
         </div>
         <div>
           <label for="productPrice">Precio</label>
