@@ -20,7 +20,7 @@
         >
           <input
             class="register--input"
-            name="user_name"
+            name="name"
             type="text"
             required
             placeholder="Nombre de usuario"
@@ -56,17 +56,17 @@
             required
             placeholder="Ciudad"
           />
-          <select class="register--input" name="pais" required>
+          <select class="register--input" name="country_id" required>
             <option value="">País</option>
             <% let countries = ['Argentina', 'Brasil', 'Colombia', 'Chile',
-            'Ecuador','México', 'Perú','Venezuela']; %> <% for (const countrie
-            of countries){%>
-            <option value="<%=countrie %>"><%=countrie%></option>
+            'Ecuador','México', 'Perú','Venezuela']; %> <% for (let i=1;
+            i<=countries.length;i++){%>
+            <option value="<%=i %>"><%=countries[i-1]%></option>
             <%}%>
           </select>
           <input
             class="register--input"
-            name="direccion"
+            name="address"
             type="text"
             required
             placeholder="Dirección"

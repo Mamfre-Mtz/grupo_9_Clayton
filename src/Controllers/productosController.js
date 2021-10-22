@@ -60,7 +60,6 @@ const controlador = {
     };
     Product.create(newproduct)
       .then((result) => {
-        console.log(result.id);
         Comic.create({
           release_date: req.body.datePublished,
           writer_id: req.body.writer,
