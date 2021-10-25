@@ -1,6 +1,7 @@
 const express = require("express");
 const uploadFile = require("../Middlewares/product_multerMiddleware");
 const validations = require("../Middlewares/product_validationsMiddleware");
+const validationsEdit = require("../Middlewares/product_editvalidationsMiddleware");
 const router = express.Router();
 const productosController = require("../Controllers/productosController");
 
@@ -20,7 +21,12 @@ router.get("/:id", productosController.single);
 
 //Edit One Product
 router.get("/:id/edit", productosController.edit);
-router.put("/:id/edit", productosController.save);
+router.put(
+  "/:id/edit",
+  uploadFile.single("cover"),
+  validationsEdit,
+  productosController.save
+);
 
 // Delete One Product
 router.delete("/:id/edit", productosController.destroy);

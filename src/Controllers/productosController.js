@@ -123,18 +123,63 @@ const controlador = {
   },
 
   save: (req, res) => {
+    // *** Validaciones
+    const resultV = validationResult(req);
+    if (resultV.errors.length > 0) {
+      const writersList = db.writer.findAll();
+      const editorialList = db.editorial.findAll();
+      const currentComic = Comic.findOne({
+        where: { product_id: req.params.id },
+        include: [
+          {
+            model: db.editorial,
+            as: "editorial_fk",
+            attributes: ["id", "name", "cover"],
+          },
+          { model: db.writer, as: "writer_fk", attributes: ["id", "name"] },
+          { model: db.product, as: "product_fk" },
+        ],
+      });
+      Promise.all([writersList, editorialList, currentComic]).then((values) => {
+        var singleProduct = {
+          ...values[2].product_fk.dataValues,
+          writer: values[2].writer_fk.id,
+          editorial: values[2].editorial_fk.id,
+          editorial_cover: values[2].editorial_fk.cover,
+          datePublished: values[2].release_date,
+        };
+        return res.render("products/editarProducto", {
+          singleProduct: singleProduct,
+          writers: values[0],
+          editorials: values[1],
+          errors: resultV.errors,
+        });
+      });
+    }
+
     // Guarda los cambios en el producto
     let status = 0;
+    let updateProduct = {};
     req.body.status == "on" ? (status = 1) : (status = 0);
-
-    let updateProduct = {
-      name: req.body.name,
-      available: status,
-      price: req.body.price,
-      cover: req.file.filename,
-      description: req.body.description,
-      discount: req.body.discount,
-    };
+    if (!req.file) {
+      updateProduct = {
+        name: req.body.name,
+        available: status,
+        price: req.body.price,
+        // no change cover
+        description: req.body.description,
+        discount: req.body.discount,
+      };
+    } else {
+      updateProduct = {
+        name: req.body.name,
+        available: status,
+        price: req.body.price,
+        cover: req.file.filename,
+        description: req.body.description,
+        discount: req.body.discount,
+      };
+    }
     Product.update(updateProduct, { where: { id: req.params.id } })
       .then(() => {
         Comic.update(
@@ -149,10 +194,20 @@ const controlador = {
             res.redirect("/products/" + req.params.id);
           })
           .catch((error) => {
-            console.log(error);
+            if (error.fields.unique_name) {
+              return res.render("products/editarProducto", {
+                errors: [{ msg: "Este nombre ya se ha registrado", param: "" }],
+              });
+            }
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        if (error.fields.unique_name) {
+          return res.render("products/editarProducto", {
+            errors: [{ msg: "Este nombre ya se ha registrado", param: "" }],
+          });
+        }
+      });
   },
 
   destroy: (req, res) => {

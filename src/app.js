@@ -8,6 +8,8 @@ const app = express();
 const rutasProductos = require("./Routes/productosRoutes");
 const rutasMain = require("./Routes/mainRoutes");
 const rutasUsuarios = require("./Routes/userRoutes");
+const rutasApiUsuarios = require("./Routes/api/api_users");
+const rutasApiProductos = require("./Routes/api/api_products");
 
 app.listen(3000, () => {
   console.log("Server 3000 already...");
@@ -35,5 +37,7 @@ app.use(methodOverride("_method")); // Pasar poder pasar el method="POST" en el 
 app.use("/", rutasMain);
 app.use("/products", rutasProductos);
 app.use("/users", rutasUsuarios);
+app.use("/api/users", rutasApiUsuarios);
+app.use("/api/products", rutasApiProductos);
 
 module.exports = app;

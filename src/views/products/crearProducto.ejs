@@ -35,6 +35,8 @@
             type="text"
             name="name"
             id="productName"
+            required
+            minlength="5"
             class="input is-info"
           />
         </div>
@@ -114,6 +116,7 @@
             id="productDescription"
             cols="30"
             rows="10"
+            minlength="20"
             class="productDescription"
           ></textarea>
         </div>
@@ -124,5 +127,6 @@
     </section>
 
     <%- include('../partials/footer')%>
+    <script src="/assets/js/products.js"></script>
   </body>
 </html>
