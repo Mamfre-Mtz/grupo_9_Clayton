@@ -7,8 +7,6 @@ const path = require("path");
 const router = express.Router();
 const controladorUser = require("../Controllers/usersController");
 
-// base
-router.get("/", authMid, controladorUser.users);
 // Login
 router.get("/login", guestMid, controladorUser.login);
 router.post("/login", controladorUser.processLogin);

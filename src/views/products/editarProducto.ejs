@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <!-- head -->
-  <%let producto = singleProduct[0]%> <%- include('../partials/head',
+  <%let producto = singleProduct%> <%- include('../partials/head',
   {title:'Inicio'}) %>
   <body>
     <!-- /Header -->
@@ -9,21 +9,31 @@
 
     <h2 class="subtitle-margin">Editar producto <%-producto.name%></h2>
     <section>
+      <% if(locals.errors) {%> <% for (const error of errors){ %>
+        <p class="ml-5 mb-3 error--text"><%-error.msg%></p>
+        <%}}%>
       <form
-        action="/products/<%-producto.id%>/save?_method=PUT"
+        action="/products/<%-producto.id%>/edit?_method=PUT"
         method="POST"
+        enctype="multipart/form-data"
         id="product__form"
       >
+      <!-- Disponible -->
+      
         <div>
           <label for="productStatus">Disponible</label>
           <input
             type="checkbox"
-            name="available"
+            name="status"
             id="productStatus"
-            value="<%-producto.available%>"
             class="productAvailable"
+            <% if(producto.available){ %>
+              checked
+              <%}%>
           />
         </div>
+
+        <!-- Nombre -->
         <div>
           <label for="productName"> Nombre del producto</label>
           <input
@@ -34,42 +44,43 @@
             value="<%-producto.name%>"
           />
         </div>
+
+        <!-- Editorial -->
         <div>
           <label for="productEditorial">Editorial</label>
           <select name="editorial" id="productEditorial" class="input is-info">
-            <option
-              value="dc"
-              name="dc"
-              selected="<%- producto.editorial =='DC Comics'? true :false %>"
-            >
-              DC Comics
-            </option>
-            <option
-              value="marvel"
-              name="marvel"
-              selected="<%- producto.editorial =='marvel'? true :false %>"
-            >
-              Marvel Comics
-            </option>
-            <option
-              value="image"
-              name="image"
-              selected="<%- producto.editorial =='image'? true :false %>"
-            >
-              Image Comics
-            </option>
+            <% for(let i=0; i<editorials.length; i++) {%>
+              <option
+              value="<%- editorials[i].id%>"
+              name="<%- editorials[i].name%>"
+              <% if(editorials[i].id == producto.editorial){%>
+                selected
+                <%}%>>
+                <%-editorials[i].name%>
+              </option>
+            <%}%>
           </select>
         </div>
+
+        <!-- Escritores -->
         <div>
           <label for="productWriter">Escrito por</label>
-          <input
-            type="text"
-            name="writer"
-            id="productWriter"
-            class="input is-info"
-            value="<%-producto.writer%>"
-          />
+          <select name="writer" id="productWriter" class="input is-info">
+            <% for(let i=0; i<writers.length; i++){%>
+              <option
+              value="<%-writers[i].id%>" 
+              name="<%-writers[i].name%>"
+              <% if(producto.writer == writers[i].id){%>
+                selected<%}%> >
+
+                <%-writers[i].name%>
+
+              </option>
+            <%}%>
+          </select>
         </div>
+
+        <!-- Precio -->
         <div>
           <label for="productPrice">Precio</label>
           <input
@@ -80,6 +91,8 @@
             value="<%-producto.price%>"
           />
         </div>
+
+        <!-- Descuento -->
         <div>
           <label for="productDiscount">Descuento</label>
           <input
@@ -90,22 +103,36 @@
             value="<%-producto.discount%>"
           />
         </div>
+        <!-- Fecha publicada -->
         <div>
           <label for="productPublish">Fecha publicada</label>
           <input
             type="date"
-            name="releaseDate"
+            name="datePublished"
             id="productPublish"
             class="input is-info"
-            value="<%-new Date('producto.releaseDate')%>"
+            value="<%-producto.datePublished%>"
             min="2010-01-01"
             max="2021-12-31"
           />
         </div>
-        <!-- <div>
-          <label for="productCover">Imagen del producto</label>
-          <input type="file" name="cover" id="productCover" />
-        </div> -->
+
+        <!-- cover -->
+        <div>
+          <label for="changeCover">Cambiar Cover</label>
+          <input
+            type="checkbox"
+            name="changeCover"
+            id="changeCover"
+            class="productAvailable"
+          />
+        </div>
+        <div class="register--input">
+          <label class="text-md" for="pp"> Foto del producto </label>
+          <input class="ml-6" name="cover" type="file" id="coverimg" disabled/>
+        </div>
+
+        <!-- Descripcion del producto -->
         <div>
           <label for="productDescription">Descripción</label>
           <br />
@@ -119,13 +146,15 @@
 <%-producto.description%></textarea
           >
         </div>
+
+        <!-- controls -->
         <div class="" style="display: flex; justify-content: center">
           <button type="submit" class="btn-addcart">Guardar producto</button>
         </div>
       </form>
 
       <form
-        action="/products/<%-producto.id%>/borrar?_method=DELETE"
+        action="/products/<%-producto.id%>/edit?_method=DELETE"
         method="POST"
       >
         <div

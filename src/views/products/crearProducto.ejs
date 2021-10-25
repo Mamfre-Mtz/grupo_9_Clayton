@@ -8,7 +8,15 @@
 
     <h2 class="subtitle-margin">Crear producto</h2>
     <section>
-      <form action="/products/store" method="POST" id="product__form">
+      <% if(locals.errors) {%> <% for (const error of errors){ %>
+      <p class="ml-5 mb-3 error--text"><%-error.msg%></p>
+      <%}}%>
+      <form
+        action="/products/create"
+        method="POST"
+        enctype="multipart/form-data"
+        id="product__form"
+      >
         <div>
           <label for="productStatus">Disponible</label>
           <input
@@ -19,6 +27,8 @@
             class="productAvailable"
           />
         </div>
+
+        <!-- Nombre -->
         <div>
           <label for="productName"> Nombre del producto</label>
           <input
@@ -28,23 +38,32 @@
             class="input is-info"
           />
         </div>
+
+        <!-- Editoriales -->
         <div>
           <label for="productEditorial">Editorial</label>
           <select name="editorial" id="productEditorial" class="input is-info">
-            <option value="DC Comics" name="dc">DC Comics</option>
-            <option value="marvel" name="marvel">Marvel Comics</option>
-            <option value="image" name="image">Image Comics</option>
+            <option value="1" name="dc">Marvel Comics</option>
+            <option value="2" name="marvel">DC Comics</option>
+            <option value="3" name="image">Image Comics</option>
           </select>
         </div>
+
+        <!-- Escritores -->
         <div>
           <label for="productWriter">Escrito por</label>
-          <input
-            type="text"
-            name="writer"
-            id="productWriter"
-            class="input is-info"
-          />
+          <select name="writer" id="productWriter" class="input is-info">
+            <option value="1" name="Alan Moore">Alan Moore</option>
+            <option value="2" name="Frank Miller">Frank Miller</option>
+            <option value="3" name="Neil Gaiman">Neil Gaiman</option>
+            <option value="4" name="Peter David">Peter David</option>
+            <option value="5" name="Robert Kirkman">Robert Kirkman</option>
+            <option value="6" name="Mark Waid">Mark Waid</option>
+            <option value="7" name="Jim Lee">Jim Lee</option>
+          </select>
         </div>
+
+        <!-- Precio -->
         <div>
           <label for="productPrice">Precio</label>
           <input
@@ -54,6 +73,8 @@
             class="input is-info"
           />
         </div>
+
+        <!-- Descuento -->
         <div>
           <label for="productDiscount">Descuento</label>
           <input
@@ -63,6 +84,8 @@
             class="input is-info"
           />
         </div>
+
+        <!-- Fecha de publicacion -->
         <div>
           <label for="productPublish">Fecha publicada</label>
           <input
@@ -75,10 +98,14 @@
             max="2021-12-31"
           />
         </div>
-        <!-- <div>
-          <label for="productCover">Imagen del producto</label>
-          <input type="file" name="cover" id="productCover" />
-        </div> -->
+
+        <!-- cover -->
+        <div class="register--input">
+          <label class="text-md" for="cover"> Foto del producto </label>
+          <input class="ml-6" name="cover" type="file" id="cover" />
+        </div>
+
+        <!-- Descripcion -->
         <div>
           <label for="productDescription">Descripción</label>
           <br />

@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
   Editorial.associate = function (models) {
     Editorial.hasMany(models.comic, {
       foreignKey: "editorial_id",
-      as: "editorial",
+      as:"editorial_fk"
     });
   };
   return Editorial;

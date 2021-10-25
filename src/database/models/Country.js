@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  let alias = "Country";
+  let alias = "country";
   let cols = {
     id: {
       type: dataTypes.INTEGER.UNSIGNED,
@@ -18,6 +18,13 @@ module.exports = (sequelize, dataTypes) => {
     deletedAt: false,
   };
   const Country = sequelize.define(alias, cols, config);
+
+  Country.associate = function (models) {
+    Country.hasMany(models.user, {
+      foreignKey: "country_id",
+      as: "country_fk",
+    });
+  };
 
   return Country;
 };

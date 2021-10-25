@@ -8,12 +8,15 @@ module.exports = (sequelize, dataTypes) => {
     },
     name: {
       type: dataTypes.STRING(30),
+      allowNull: false,
+      unique: true,
     },
     available: {
       type: dataTypes.BOOLEAN,
     },
     price: {
       type: dataTypes.DECIMAL.UNSIGNED,
+      allowNull: false,
     },
     cover: {
       type: dataTypes.STRING(100),
@@ -21,6 +24,7 @@ module.exports = (sequelize, dataTypes) => {
     },
     description: {
       type: dataTypes.TEXT,
+      allowNull: false,
     },
     discount: {
       type: dataTypes.TINYINT(3).UNSIGNED,
@@ -37,11 +41,16 @@ module.exports = (sequelize, dataTypes) => {
     deletedAt: false,
   };
   const Product = sequelize.define(alias, cols, config);
+
   Product.associate = function (models) {
-    Product.hasMany(models.comic, {
-      foreignKey: "product_id",
-      as: "producto",
-    });
+    Product.hasOne(
+      models.comic,
+      {
+        foreignKey: "product_id",
+        as: "product_fk",
+      },
+      { onDelete: "CASCADE", hooks: true }
+    );
   };
 
   return Product;

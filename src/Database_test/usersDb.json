@@ -125,5 +125,17 @@
   "direccion": "rio totolica 901 villa verde",
   "cp": "21395",
   "avatar": "pp-1633242800463.jpg"
+ },
+ {
+  "id": 17,
+  "name": "Alfredo Martinez",
+  "email": "lezac4@hotmail.com",
+  "password": "$2a$10$aJN115RAhT3uw4pGx.ZGledBxd5xexX4PZdyL3Bnt7oPRdjCP79Ae",
+  "age": "1997-04-16",
+  "city": "Mexicali",
+  "country_id": "6",
+  "direccion": "rio totolica 901 villa verde",
+  "cp": "21395",
+  "avatar": "pp-1634858675078.jpg"
  }
 ]

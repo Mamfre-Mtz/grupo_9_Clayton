@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
   Writer.associate = function (models) {
     Writer.hasMany(models.comic, {
       foreignKey: "writer_id",
-      as: "writer",
+      as: "writer_fk"
     });
   };
   return Writer;
