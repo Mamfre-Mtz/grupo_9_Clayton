@@ -1,9 +1,8 @@
 const path = require("path");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-const User = require("../Models/User");
 const db = require("../database/models");
-const Userr = db.user;
+const User = db.user;
 
 const controladorUser = {
   login: (req, res) => {
@@ -11,7 +10,7 @@ const controladorUser = {
   },
 
   processLogin: (req, res) => {
-    Userr.findOne({
+    User.findOne({
       where: { email: req.body.email },
     })
       .then((userReady) => {
@@ -25,7 +24,7 @@ const controladorUser = {
         if (checkpass) {
           delete userReady.password;
           req.session.userLogged = userReady;
-          if (req.body.recordatorio) {
+          if (req.body.recordatorio == "on") {
             res.cookie("userEmail", req.body.email);
           }
           return res.redirect("/users/profile");
@@ -36,7 +35,9 @@ const controladorUser = {
         }
       })
       .catch(() => {
-        return res.send("pura vvvv");
+        return res.render("users/login", {
+          errors: [{ msg: "Porfavor intentelo más tarde" }],
+        });
       });
   },
 
@@ -45,27 +46,36 @@ const controladorUser = {
   },
 
   processRegister: (req, res) => {
+    let rutafile = "default";
+    if (req.file) rutafile = req.file.filename;
+
     // ***Validaciones
-    // const resultV = validationResult(req.errors);
-    // if (resultV.length > 0) {
-    //   return res.render("users/registro", { errors: resultV });
-    // }
-    // if (User.findByField("email", req.body.email)) {
-    //   return res.render("users/registro", {
-    //     errors: [{ msg: "Este correo ya se ha registrado", param: "" }],
-    //   });
-    // }
+    const resultV = validationResult(req);
+    if (resultV.errors.length > 0) {
+      return res.render("users/registro", { errors: resultV.errors });
+    }
+
     let newuser = {
       ...req.body,
       password: bcryptjs.hashSync(req.body.password, 10),
-      avatar: req.file.filename,
+      avatar: rutafile,
     };
-    Userr.create(newuser)
+    User.create(newuser)
       .then(() => {
         return res.render("users/login");
       })
       .catch((error) => {
-        console.log(error);
+        // valores unicos
+        if (error.fields.unique_name) {
+          return res.render("users/registro", {
+            errors: [{ msg: "Este nombre ya se ha registrado", param: "" }],
+          });
+        }
+        if (error.fields.unique_email) {
+          return res.render("users/registro", {
+            errors: [{ msg: "Este correo ya se ha registrado", param: "" }],
+          });
+        } else console.log(error.fields);
       });
   },
   profile: (req, res) => {

@@ -9,11 +9,17 @@
 
     <h2 class="subtitle-margin">Editar producto <%-producto.name%></h2>
     <section>
+      <% if(locals.errors) {%> <% for (const error of errors){ %>
+        <p class="ml-5 mb-3 error--text"><%-error.msg%></p>
+        <%}}%>
       <form
         action="/products/<%-producto.id%>/edit?_method=PUT"
         method="POST"
+        enctype="multipart/form-data"
         id="product__form"
       >
+      <!-- Disponible -->
+      
         <div>
           <label for="productStatus">Disponible</label>
           <input
@@ -26,6 +32,8 @@
               <%}%>
           />
         </div>
+
+        <!-- Nombre -->
         <div>
           <label for="productName"> Nombre del producto</label>
           <input
@@ -36,50 +44,43 @@
             value="<%-producto.name%>"
           />
         </div>
+
+        <!-- Editorial -->
         <div>
           <label for="productEditorial">Editorial</label>
           <select name="editorial" id="productEditorial" class="input is-info">
-            <option
-            value="3"
-            name="marvel"
-            <% if(producto.editorial == 3){ %>
-              selected
-              <%}%>
-          >
-            Marvel Comics
-          </option>
-            <option
-              value="2"
-              name="dc"
-              <% if(producto.editorial == 2){ %>
-              selected
-              <%}%>
-            >
-              DC Comics
-            </option>
-            <option
-              value="1"
-              name="image"
-              <% if(producto.editorial == 1){ %>
+            <% for(let i=0; i<editorials.length; i++) {%>
+              <option
+              value="<%- editorials[i].id%>"
+              name="<%- editorials[i].name%>"
+              <% if(editorials[i].id == producto.editorial){%>
                 selected
-                <%}%>
-            >
-              Image Comics
-            </option>
+                <%}%>>
+                <%-editorials[i].name%>
+              </option>
+            <%}%>
           </select>
         </div>
+
+        <!-- Escritores -->
         <div>
           <label for="productWriter">Escrito por</label>
           <select name="writer" id="productWriter" class="input is-info">
-            <option value="1" name="Alan Moore">Alan Moore</option>
-            <option value="2" name="Frank Miller">Frank Miller</option>
-            <option value="3" name="Neil Gaiman">Neil Gaiman</option>
-            <option value="4" name="Peter David">Peter David</option>
-            <option value="5" name="Robert Kirkman">Robert Kirkman</option>
-            <option value="6" name="Mark Waid">Mark Waid</option>
-            <option value="7" name="Jim Lee">Jim Lee</option>
+            <% for(let i=0; i<writers.length; i++){%>
+              <option
+              value="<%-writers[i].id%>" 
+              name="<%-writers[i].name%>"
+              <% if(producto.writer == writers[i].id){%>
+                selected<%}%> >
+
+                <%-writers[i].name%>
+
+              </option>
+            <%}%>
           </select>
         </div>
+
+        <!-- Precio -->
         <div>
           <label for="productPrice">Precio</label>
           <input
@@ -90,6 +91,8 @@
             value="<%-producto.price%>"
           />
         </div>
+
+        <!-- Descuento -->
         <div>
           <label for="productDiscount">Descuento</label>
           <input
@@ -100,6 +103,7 @@
             value="<%-producto.discount%>"
           />
         </div>
+        <!-- Fecha publicada -->
         <div>
           <label for="productPublish">Fecha publicada</label>
           <input
@@ -112,10 +116,23 @@
             max="2021-12-31"
           />
         </div>
-        <!-- <div>
-          <label for="productCover">Imagen del producto</label>
-          <input type="file" name="cover" id="productCover" />
-        </div> -->
+
+        <!-- cover -->
+        <div>
+          <label for="changeCover">Cambiar Cover</label>
+          <input
+            type="checkbox"
+            name="changeCover"
+            id="changeCover"
+            class="productAvailable"
+          />
+        </div>
+        <div class="register--input">
+          <label class="text-md" for="pp"> Foto del producto </label>
+          <input class="ml-6" name="cover" type="file" id="coverimg" disabled/>
+        </div>
+
+        <!-- Descripcion del producto -->
         <div>
           <label for="productDescription">Descripción</label>
           <br />
@@ -129,6 +146,8 @@
 <%-producto.description%></textarea
           >
         </div>
+
+        <!-- controls -->
         <div class="" style="display: flex; justify-content: center">
           <button type="submit" class="btn-addcart">Guardar producto</button>
         </div>

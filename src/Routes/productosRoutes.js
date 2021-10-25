@@ -1,5 +1,6 @@
 const express = require("express");
-const multer = require("multer");
+const uploadFile = require("../Middlewares/product_multerMiddleware");
+const validations = require("../Middlewares/product_validationsMiddleware");
 const router = express.Router();
 const productosController = require("../Controllers/productosController");
 
@@ -7,7 +8,12 @@ router.get("/", productosController.products);
 
 // Add One Product
 router.get("/create", productosController.add);
-router.post("/create", productosController.store);
+router.post(
+  "/create",
+  uploadFile.single("cover"),
+  validations,
+  productosController.store
+);
 
 // Get One Product
 router.get("/:id", productosController.single);

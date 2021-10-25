@@ -8,7 +8,15 @@
 
     <h2 class="subtitle-margin">Crear producto</h2>
     <section>
-      <form action="/products/create" method="POST" id="product__form">
+      <% if(locals.errors) {%> <% for (const error of errors){ %>
+      <p class="ml-5 mb-3 error--text"><%-error.msg%></p>
+      <%}}%>
+      <form
+        action="/products/create"
+        method="POST"
+        enctype="multipart/form-data"
+        id="product__form"
+      >
         <div>
           <label for="productStatus">Disponible</label>
           <input
@@ -19,6 +27,8 @@
             class="productAvailable"
           />
         </div>
+
+        <!-- Nombre -->
         <div>
           <label for="productName"> Nombre del producto</label>
           <input
@@ -28,6 +38,8 @@
             class="input is-info"
           />
         </div>
+
+        <!-- Editoriales -->
         <div>
           <label for="productEditorial">Editorial</label>
           <select name="editorial" id="productEditorial" class="input is-info">
@@ -36,6 +48,8 @@
             <option value="3" name="image">Image Comics</option>
           </select>
         </div>
+
+        <!-- Escritores -->
         <div>
           <label for="productWriter">Escrito por</label>
           <select name="writer" id="productWriter" class="input is-info">
@@ -48,6 +62,8 @@
             <option value="7" name="Jim Lee">Jim Lee</option>
           </select>
         </div>
+
+        <!-- Precio -->
         <div>
           <label for="productPrice">Precio</label>
           <input
@@ -57,6 +73,8 @@
             class="input is-info"
           />
         </div>
+
+        <!-- Descuento -->
         <div>
           <label for="productDiscount">Descuento</label>
           <input
@@ -66,6 +84,8 @@
             class="input is-info"
           />
         </div>
+
+        <!-- Fecha de publicacion -->
         <div>
           <label for="productPublish">Fecha publicada</label>
           <input
@@ -78,10 +98,14 @@
             max="2021-12-31"
           />
         </div>
-        <!-- <div>
-          <label for="productCover">Imagen del producto</label>
-          <input type="file" name="cover" id="productCover" />
-        </div> -->
+
+        <!-- cover -->
+        <div class="register--input">
+          <label class="text-md" for="cover"> Foto del producto </label>
+          <input class="ml-6" name="cover" type="file" id="cover" />
+        </div>
+
+        <!-- Descripcion -->
         <div>
           <label for="productDescription">Descripción</label>
           <br />

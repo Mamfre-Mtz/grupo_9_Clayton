@@ -1,8 +1,6 @@
 const path = require("path");
-const fs = require("fs");
 const db = require("../database/models");
-const { off } = require("process");
-const sequelize = db.sequelize;
+const { validationResult } = require("express-validator");
 const Comic = db.comic;
 const Product = db.product;
 
@@ -45,6 +43,11 @@ const controlador = {
   },
 
   store: (req, res) => {
+    // ***Validaciones
+    const resultV = validationResult(req);
+    if (resultV.errors.length > 0) {
+      return res.render("products/crearProducto", { errors: resultV.errors });
+    }
     // Guarda el nuevo producto
     let status = 0;
     req.body.status == "on" ? (status = 1) : (status = 0);
@@ -53,7 +56,7 @@ const controlador = {
       name: req.body.name,
       available: status,
       price: req.body.price,
-      cover: "spidey_05.jpg",
+      cover: req.file.filename,
       description: req.body.description,
       discount: req.body.discount,
       type: "comic",
@@ -70,7 +73,11 @@ const controlador = {
             return res.redirect("/products");
           })
           .catch((error) => {
-            console.log(error);
+            if (error.fields.unique_name) {
+              return res.render("products/crearProducto", {
+                errors: [{ msg: "Este nombre ya se ha registrado", param: "" }],
+              });
+            }
           });
       })
       .catch((error) => {
@@ -81,7 +88,9 @@ const controlador = {
   edit: (req, res) => {
     // Te lleva a la vista de editar producto
     let single = req.params.id;
-    Comic.findOne({
+    const writersList = db.writer.findAll();
+    const editorialList = db.editorial.findAll();
+    const currentComic = Comic.findOne({
       where: { product_id: single },
       include: [
         {
@@ -92,17 +101,21 @@ const controlador = {
         { model: db.writer, as: "writer_fk", attributes: ["id", "name"] },
         { model: db.product, as: "product_fk" },
       ],
-    })
-      .then((single_comic) => {
+    });
+    Promise.all([writersList, editorialList, currentComic])
+      .then((values) => {
         let singleProduct = {
-          ...single_comic.product_fk.dataValues,
-          writer: single_comic.writer_fk.id,
-          editorial: single_comic.editorial_fk.id,
-          editorial_cover: single_comic.editorial_fk.cover,
-          datePublished: single_comic.release_date,
+          ...values[2].product_fk.dataValues,
+          writer: values[2].writer_fk.id,
+          editorial: values[2].editorial_fk.id,
+          editorial_cover: values[2].editorial_fk.cover,
+          datePublished: values[2].release_date,
         };
-        console.log(singleProduct);
-        res.render("products/editarProducto", { singleProduct });
+        res.render("products/editarProducto", {
+          singleProduct: singleProduct,
+          writers: values[0],
+          editorials: values[1],
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -118,7 +131,7 @@ const controlador = {
       name: req.body.name,
       available: status,
       price: req.body.price,
-      // cover: "spidey_05.jpg",
+      cover: req.file.filename,
       description: req.body.description,
       discount: req.body.discount,
     };

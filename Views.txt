@@ -14,3 +14,13 @@ https://wireframe.cc/2waFV0
 --Login
 
 https://wireframe.cc/TTDBVp
+
+// body("email").isEmpty().withMessage("Tienes que escribir un correo"),
+// body("password").isEmpty().withMessage("Tienes que escribir una contraseña"),
+// body("age").isEmpty().withMessage("Tienes que seleccionar una fecha"),
+// body("pp").custom((value, { req }) => {
+//     let file = req.file;
+//     let acceptext = [".jpg", ".png", ".gif", ".jpeg", ".PNG", ".JPG"];
+//     if (acceptext.includes(path.extname(file.originalname)) !== true) {
+//       throw new Error("No se puede subir este tipo de archivo");
+//     }

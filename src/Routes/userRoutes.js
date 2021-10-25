@@ -15,8 +15,8 @@ router.post("/login", controladorUser.processLogin);
 router.get("/register", guestMid, controladorUser.register);
 router.post(
   "/register",
-  validations,
   uploadFile.single("pp"),
+  validations,
   controladorUser.processRegister
 );
 
