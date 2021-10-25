@@ -33,6 +33,26 @@ main {
 .fill-primary {
   background-color: #00bcf0; }
 
+.is-danger {
+  border-color: #f14668 !important; }
+
+.is-success {
+  border-color: #48c78e !important; }
+
+.bottom-isdanger {
+  border-bottom: 2px solid #f14668 !important; }
+
+.bottom-issuccess {
+  border-bottom: 2px solid #48c78e !important; }
+
+.register--input:invalid:focus,
+#login form input:invalid:focus {
+  background-image: linear-gradient(#ffafbd, #ffc3a0); }
+
+.register--input:valid:focus,
+#login form input:valid:focus {
+  background-image: linear-gradient(#56ab2f, #a8e063); }
+
 .card .issue-margin {
   margin: 0px 17%; }
 
@@ -183,7 +203,7 @@ section#login {
   section#login form {
     text-align: center; }
     section#login form input {
-      border: solid 1px #303539;
+      border-color: #303539;
       border-radius: 5px;
       font-family: "FuturaBold", sans-serif;
       margin-top: 5%;

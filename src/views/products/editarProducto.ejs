@@ -40,6 +40,7 @@
             type="text"
             name="name"
             id="productName"
+            required
             class="input is-info"
             value="<%-producto.name%>"
           />
@@ -87,6 +88,7 @@
             type="number"
             name="price"
             id="productPrice"
+            required
             class="input is-info"
             value="<%-producto.price%>"
           />
@@ -99,6 +101,7 @@
             type="number"
             name="discount"
             id="productDiscount"
+            required
             class="input is-info"
             value="<%-producto.discount%>"
           />
@@ -118,15 +121,6 @@
         </div>
 
         <!-- cover -->
-        <div>
-          <label for="changeCover">Cambiar Cover</label>
-          <input
-            type="checkbox"
-            name="changeCover"
-            id="changeCover"
-            class="productAvailable"
-          />
-        </div>
         <div class="register--input">
           <label class="text-md" for="cover"> Foto del producto </label>
           <input class="ml-6" name="cover" type="file" id="cover"/>
@@ -139,6 +133,7 @@
           <textarea
             name="description"
             id="productDescription"
+            required
             cols="30"
             rows="10"
             class="productDescription"
@@ -167,5 +162,6 @@
     </section>
 
     <%- include('../partials/footer')%>
+    <script src="/assets/js/products.js"></script>
   </body>
 </html>
