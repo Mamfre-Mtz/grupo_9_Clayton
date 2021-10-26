@@ -11,8 +11,8 @@ const rutasUsuarios = require("./Routes/userRoutes");
 const rutasApiUsuarios = require("./Routes/api/api_users");
 const rutasApiProductos = require("./Routes/api/api_products");
 
-app.listen(3000, () => {
-  console.log("Server 3000 already...");
+app.listen(3001, () => {
+  console.log("Server 3001 already...");
 });
 
 // template engine
