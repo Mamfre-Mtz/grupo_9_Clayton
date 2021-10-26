@@ -6,4 +6,4 @@ Continuar haciendo: actualizar los tableros del trello.
 
 Hacer menos: retrasarse con los entregables.
 
-Dejar de hacer:
+Dejar de hacer: retrasar bugs
