@@ -39,5 +39,8 @@ app.use("/products", rutasProductos);
 app.use("/users", rutasUsuarios);
 app.use("/api/users", rutasApiUsuarios);
 app.use("/api/products", rutasApiProductos);
+app.use((req, res, next) => {
+  res.status(404).render("not-found");
+});
 
 module.exports = app;
