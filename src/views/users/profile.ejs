@@ -6,19 +6,32 @@
     <!-- /Header -->
     <%- include('../partials/header') %>
     <section class="user__profile">
-      <h2>Hola <%-user.name%></h2>
-      <figure>
-        <% if (user.avatar=="default"){%>
-        <img src="/assets/img/users/Default.png" class="avatar" alt="Avatar" />
-        <%}else{%>
-        <img
-          src="/assets/img/users/<%-user.avatar%>"
-          class="avatar"
-          alt="Avatar"
-        />
-        <%}%>
-      </figure>
-      <p><%-user.email%></p>
+      <div>
+        <h2>Hola <%-user.name%></h2>
+        <figure>
+          <% if (user.avatar=="default"){%>
+          <img
+            src="/assets/img/users/Default.png"
+            class="avatar"
+            alt="Avatar"
+          />
+          <%}else{%>
+          <img
+            src="/assets/img/users/<%-user.avatar%>"
+            class="avatar"
+            alt="Avatar"
+          />
+          <%}%>
+        </figure>
+      </div>
+
+      <div class="user-info">
+        <h3 class="text-md mb-2"><%-user.email%></h3>
+        <h3 class="text-md mb-2"><%-user.city%></h3>
+        <h3 class="text-md mb-2"><%-user.age%></h3>
+        <h3 class="text-md mb-2"><%-user.address%></h3>
+        <h3 class="text-md mb-2"><%-user.cp%></h3>
+      </div>
     </section>
 
     <!-- Footer -->

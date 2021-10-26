@@ -6,18 +6,16 @@ async function userlogged(req, res, next) {
 
   let userCookie = req.cookies.userEmail;
   try {
-    let userActive = await User.findOne({ where: { email: userCookie } });
-
-    if (userActive) {
-      req.session.userLogged = userActive;
-    }
-
-    if (req.session && req.session.userLogged) {
-      res.locals.isLogged = true;
-      res.locals.userLogged = req.session.userLogged;
-    }
+    var userActive = await User.findOne({ where: { email: userCookie } });
   } catch {
     console.log("nel");
+  }
+  if (userActive) {
+    req.session.userLogged = userActive;
+  }
+  if (req.session.userLogged) {
+    res.locals.isLogged = true;
+    res.locals.userLogged = req.session.userLogged;
   }
 
   next();
