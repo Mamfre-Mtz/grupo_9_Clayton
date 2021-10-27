@@ -71,9 +71,12 @@ const controladorUser = {
             errors: [{ msg: "Este nombre ya se ha registrado", param: "" }],
           });
         }
-        if (error.fields.unique_email) {
+
+        if (error.fields.unique_value) {
           return res.render("users/registro", {
-            errors: [{ msg: "Este correo ya se ha registrado", param: "" }],
+            errors: [
+              { msg: "Este nombre y correo ya se han registrado", param: "" },
+            ],
           });
         } else console.log(error.fields);
       });

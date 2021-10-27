@@ -411,3 +411,9 @@ section#registro {
     width: 200px; }
   .user__profile .user-info {
     margin-top: 8rem; }
+
+.not-found {
+  margin: 2rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0rem; }
